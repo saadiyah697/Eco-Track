@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Track | Driver Pro</title>
+    <link rel="icon" type="image/x-icon" href="../drivers/Images/Eco-track-white-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../drivers/drivers-style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+    <aside class="sidebar">
+    <div class="sidebar-top">
+    <div class="company-brand">
+    <div class="logo-wrap">
+        <img src="../drivers/Images/Eco-track-white-logo.png" alt="Eco-Track Logo">
+    </div>
+    <div class="brand-text">
+        <span class="company-name">ECO-TRACK</span>
+        <span class="company-tagline">Logistics Solutions</span>
+    </div>
+    </div>
+
+<ul class="nav-menu">
+    <li><a href="../drivers/driver-dashboard.html"><i class="ph ph-grid-four"></i> Overview</a></li>
+    <li><a href="../drivers/driver-dashboard.html#collection-mix"><i class="ph ph-package"></i> Waste Logs</a></li>
+    <li><a href="../drivers/driver-pickuprecords.html"><i class="ph ph-clock-counter-clockwise"></i> Pickup History</a></li>
+    <li><a href="../drivers/driver-reward.html"><i class="ph ph-star"></i> My Rewards</a></li>
+    <li><a href="../drivers/driver-dashboard.html#vehicle-health"><i class="ph ph-truck"></i> Vehicle Status</a></li>
+    <li><a href="../drivers/driver-report.html"><i class="ph ph-warning-circle"></i> Report Issue</a></li>
+    <li class="active"><a href="../drivers/driver-alert.html"><i class="ph ph-bell"></i> Alerts & Notifications</a></li>
+    <li><a href="../drivers/driver-profile.html"><i class="ph ph-user-circle"></i> My Profile</a></li>
+</ul>
+
+</div>
+
+    <div class="sidebar-footer">
+    <div class="user-card">
+    <div class="avatar">RA</div>
+    <div class="user-info">
+        <span class="user-name">Rayan Ahmed</span>
+        <span class="user-role">Senior Fleet Operator</span>
+    </div>
+    </div>
+        <button class="logout-btn">Logout</button>
+    </div>
+    </aside>
+
+
+<main class="main-content">
+    <header class="page-header">
+        <div class="header-main">
+            <h1>Intelligence Hub</h1>
+            <p>Live operational feed from Sharjah Central Dispatch</p>
+        </div>
+        <div class="header-actions">
+            <button class="action-pill secondary"><i class="ph ph-sliders"></i> FILTER</button>
+            <button class="action-pill primary"><i class="ph ph-check-circle"></i> MARK ALL READ</button>
+        </div>
+    </header>
+
+    <div class="alerts-feed">
+        <div class="feed-label">Operational Critical</div>
+
+        <!-- 1. Roadwork (High Priority) -->
+        <div class="alert-item priority-high">
+            <div class="indicator"></div>
+            <div class="icon-box"><i class="ph-fill ph-map-trifold"></i></div>
+            <div class="alert-details">
+                <div class="alert-meta">
+                    <span class="alert-cat">RTA Sharjah</span>
+                    <span class="alert-time">Just Now</span>
+                </div>
+                <h3 class="alert-title">Al Dhaid Rd (E88) — Emergency Utility Works  </h3>
+                <p class="alert-desc">A temporary single‑lane closure is active near the Al Batayeh interchange due to underground cable maintenance. Eastbound traffic toward Al Dhaid is experiencing 10–12 minute delays. System has flagged this corridor for dynamic rerouting.</p>
+                <div class="alert-btns">
+                    <button class="btn-sm-primary">Reroute</button>
+                    <button class="btn-sm-outline">Map View</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Fleet Intelligence -->
+        <div class="alert-item priority-info">
+            <div class="indicator"></div>
+            <div class="icon-box"><i class="ph-fill ph-truck"></i></div>
+            <div class="alert-details">
+                <div class="alert-meta">
+                    <span class="alert-cat">Fleet Management</span>
+                    <span class="alert-time">18m ago</span>
+                </div>
+                <h3 class="alert-title">Bin Capacity Alert — Al Khan Zone 3 </h3>
+                <p class="alert-desc">IoT sensors indicate 92% capacity in mixed‑waste bins behind the waterfront retail strip. The route optimizer has placed this stop into your next‑available collection cycle to avoid overflow during peak footfall hours.</p>
+            </div>
+        </div>
+
+        <!-- 3. Traffic Alert -->
+        <div class="alert-item priority-high">
+            <div class="indicator"></div>
+            <div class="icon-box"><i class="ph-fill ph-traffic-signal"></i></div>
+            <div class="alert-details">
+                <div class="alert-meta">
+                    <span class="alert-cat">Traffic Intelligence</span>
+                    <span class="alert-time">42m ago</span>
+                </div>
+                <h3 class="alert-title">Congestion: Al Wahda St</h3>
+                <p class="alert-desc">Heavy delays reported toward City Centre Sharjah. Diversion via Al Majaz recommended to maintain schedule accuracy.</p>
+            </div>
+        </div>
+
+        <div class="feed-label">Performance & System</div>
+
+        <!-- 4. Sustainability Goal -->
+        <div class="alert-item priority-success">
+            <div class="indicator"></div>
+            <div class="icon-box"><i class="ph-fill ph-leaf"></i></div>
+            <div class="alert-details">
+                <div class="alert-meta">
+                    <span class="alert-cat">Net Zero Milestone</span>
+                    <span class="alert-time">2h ago</span>
+                </div>
+                <h3 class="alert-title">Sustainability Goal Achieved</h3>
+                <p class="alert-desc">A certified 100 kg CO₂ offset has been logged for your route, advancing the UAE Circular Economy Policy 2030 benchmarks. Your district’s sustainability rating has strengthened as Eco‑Track moves toward higher‑impact environmental targets.</p>
+            </div>
+        </div>
+
+        <!-- 5. Vehicle Alert -->
+        <div class="alert-item priority-warn">
+            <div class="indicator"></div>
+            <div class="icon-box"><i class="ph-fill ph-gauge"></i></div>
+            <div class="alert-details">
+                <div class="alert-meta">
+                    <span class="alert-cat">Maintenance</span>
+                    <span class="alert-time">4h ago</span>
+                </div>
+                <h3 class="alert-title">Low AdBlue Level Detected</h3>
+                <p class="alert-desc">System diagnostics show AdBlue at 15%. A refill is scheduled at Sharjah Central Depot upon shift completion to maintain optimal engine efficiency and emissions compliance.</p>
+            </div>
+        </div>
+
+        <!-- 6. Logistics Verification -->
+        <div class="alert-item priority-info">
+            <div class="indicator"></div>
+            <div class="icon-box"><i class="ph-fill ph-check-square"></i></div>
+            <div class="alert-details">
+                <div class="alert-meta">
+                    <span class="alert-cat">Logistics</span>
+                    <span class="alert-time">Yesterday</span>
+                </div>
+                <h3 class="alert-title">Payload Verification Successful</h3>
+                <p class="alert-desc">Weight‑sensor data confirms a precise match for Pickup #8842 at Al Wahda street. Meeting the Eco‑Track’s certified verification threshold for traceable waste movement.</p>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Pickup | Eco-Track</title>
+    <link rel="icon" type="image/png" href="../user/user-images/Eco-track-white-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="user-style.css">
+</head>
+
+<body>
+
+    <!-- Top Navbar (Consistent with Dashboard) -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <img src="../user/user-images/Eco-track-white-logo.png" alt="Eco-Track Logo" class="logo">
+            <div class="brand-info">
+                <span class="brand-text">Eco-Track</span>
+            </div>
+        </div>
+        
+        <div class="nav-right">
+            <div class="user-badge">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Eco Champion</span>
+            </div>
+            <a href="../../index.html" class="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="layout-wrapper">
+        <nav class="side-column">
+            <div class="side-nav-wrapper">
+                <ul class="side-links">
+                    <li><a href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+                    <li><a href="user-pickup.html" class="active"><i class="fa-solid fa-truck-pickup"></i> Request Pickup</a></li>
+                    <li><a href="user-livetracking.html"><i class="fa-solid fa-map-location-dot"></i> Live Tracking</a></li>
+                    <li><a href="user-reward.html"><i class="fa-solid fa-gift"></i> My Rewards</a></li>
+                    <li><a href="user-profile.html"><i class="fa-solid fa-user-gear"></i> My Profile</a></li>
+                </ul>
+            </div>
+            <div class="side-footer">
+                <p>© 2026 Eco-Track UAE</p>
+            </div>
+        </nav>
+
+
+        <main class="content-area">
+            <div class="welcome-banner">
+                <div class="banner-text">
+                    <h1>Schedule a <span class="highlight">Pickup</span></h1>
+                    <p>Fill in the details below to request a waste collection from your location.</p>
+                </div>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container-premium">
+                <form id="pickupForm">
+                    <div class="form-grid">
+                        <!-- Waste Type -->
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-recycle"></i> Waste Category</label>
+                            <select id="wasteType" required>
+                                <option value="" disabled selected>Select Category</option>
+                                <option value="plastic">Plastic Waste</option>
+                                <option value="paper">Paper & Cardboard</option>
+                                <option value="metal">Metal & Cans</option>
+                                <option value="glass">Mirrors & Glass</option>
+                                <option value="ewaste">Electronic Waste</option>
+                            </select>
+                        </div>
+
+                        <!-- Quantity -->
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-weight-hanging"></i> Estimated Weight (kg)</label>
+                            <input type="number" id="weight" placeholder="e.g. 5" min="1" required>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-calendar-day"></i> Preferred Date</label>
+                            <input type="date" id="pickupDate" required>
+                        </div>
+
+                        <!-- Time Slot -->
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-clock"></i> Preferred Time Slot</label>
+                            <select id="timeSlot" required>
+                                <option value="morning">Morning (8 AM - 12 PM)</option>
+                                <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                <option value="evening">Evening (4 PM - 8 PM)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Address Section -->
+                    <div class="input-group full-width">
+                        <label><i class="fa-solid fa-location-dot"></i> Collection Address</label>
+                        <textarea id="address" rows="3" placeholder="Enter your full pickup address..." required></textarea>
+                    </div>
+
+                    <div class="form-footer">
+                        <p class="form-note">* Note: Points will be credited after successful driver verification.</p>
+                        <button type="submit" class="main-cta-btn">Confirm Request <i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

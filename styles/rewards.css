@@ -1,0 +1,231 @@
+:root {
+    --bg-main: #ecf0f1;
+    --navy-text: #223c56;
+    --teal-eco: #1abc9c;
+    --lime-eco: #a4de02;
+    --white: #ffffff;
+    --muted: #7f8c8d;
+}
+
+.page-main-header {
+    text-align: center;
+    padding: 40px 20px;
+    width: 100%;
+}
+
+.main-title {
+    font-size: 2.5rem; 
+    font-weight: 600;
+    color: #a4de02; 
+    letter-spacing: -1.5px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+.main-tagline {
+    font-size: 1.4rem;
+    color: var(--navy-text);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto; 
+    letter-spacing: -1px;
+}
+
+
+
+.rewards-wrapper {
+    background-color: var(--bg-main);
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center; 
+    min-height: calc(100vh - 400px); 
+    display: flex;
+    flex-direction: column; /* Stacks header on top of grid */
+    align-items: center;
+}
+
+.rewards-display-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* 2. Card Styling */
+.eco-card {
+    background: var(--white);
+    border-radius: 40px;
+    padding: 40px;
+    box-shadow: 0 20px 50px rgba(34, 60, 86, 0.05);
+}
+
+.card-intro {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.main-icon { 
+    color: var(--teal-eco); 
+    width: 32px; 
+    height: 32px; 
+}
+
+.intro-text h2 { 
+    font-size: 1.6rem; 
+    font-weight: 800; 
+    color: var(--navy-text); 
+}
+
+.intro-text p { 
+    font-size: 0.85rem; 
+    color: var(--muted); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
+/* 3. User Item Styling */
+.item-list { 
+    display: flex; 
+    flex-direction: 
+    column; gap: 12px; 
+}
+
+.item-row {
+    background: #f0f1f1;
+    border: 1.2px solid #223c56 ;
+    padding: 20px 30px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: 0.5s ease;
+}
+
+.item-row:hover { 
+    transform: translateX(10px);  
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02); 
+}
+
+.item-info { 
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.item-info i { 
+    color: var(--teal-eco); 
+    width: 20px; 
+    height: 20px; 
+}
+
+.item-info .name {
+     display: block; 
+     font-weight: 700; 
+     color: var(--navy-text); 
+}
+
+.item-info .sub { 
+    font-size: 1rem; 
+    color: var(--muted); 
+}
+
+
+.point-value, .inc-points { 
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    color: var(--lime-eco); 
+}
+.point-value small { 
+    font-size: 1.2rem; 
+    color: var(--lime-eco); 
+    font-weight: 600; 
+}
+
+.special-highlight { 
+    background: var(--navy-text); 
+    color: white; 
+}
+
+.special-highlight .name, .special-highlight i { 
+    color: white; 
+}
+
+.special-highlight .item-info .sub {
+    color: #ffffff !important; 
+    opacity: 0.9; 
+}
+
+.lime-points { 
+    color: var(--lime-eco) !important; 
+}
+
+/* 4. drivers Hub Boxes */
+.incentive-stack { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    
+}
+
+.incentive-box {
+    background: #f0f1f1;
+    border: 1.5px solid #a4de02;
+    padding: 20px 30px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: 0.5s;
+}
+
+
+.incentive-box i { 
+    color: var(--teal-eco); 
+    width: 24px; 
+    height: 24px; 
+  
+}
+
+.incentive-box:hover { 
+    transform: translateX(10px); 
+}
+
+.inc-details { 
+    flex: 1; 
+}
+
+.inc-details h3 {
+    font-size: 0.95rem; 
+    font-weight: 700; 
+    color: var(--navy-text); 
+}
+
+.inc-details p { 
+    font-size: 1rem; 
+    color: var(--muted); 
+}
+
+.elite-box { 
+    background: var(--lime-eco); 
+    border: none; 
+}
+
+.elite-box .inc-points, .elite-box h3, .elite-box i { 
+    color: var(--navy-text); 
+}
+
+.elite-box .inc-details p {
+    color: #ffffff !important; 
+    
+
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1000px) {
+    .rewards-display-grid { grid-template-columns: 1fr; }
+}

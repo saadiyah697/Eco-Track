@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Rewards | Eco-Track</title>
+     <link rel="icon" type="image/png" href="../user/user-images/Eco-track-white-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="user-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <!-- Consistent Top Navbar -->
+    <header class="top-navbar">
+        <div class="nav-left">
+            <img src="../user/user-images/Eco-track-white-logo.png" alt="Logo" class="logo">
+            <span class="brand-text">Eco-Track</span>
+        </div>
+        <div class="nav-right">
+             <div class="user-badge">
+                <i class="fa-solid fa-circle-user"></i>
+                <span>Eco Champion</span>
+            </div>
+            
+            <a href="../../index.html" class="logout-link">Logout</a>
+        </div>
+    </header>
+
+    <div class="layout-wrapper">
+        <nav class="side-column">
+            <div class="side-nav-wrapper">
+                <ul class="side-links">
+                    <li><a href="user-dashboard.html"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+                    <li><a href="user-pickup.html"><i class="fa-solid fa-truck-pickup"></i> Request Pickup</a></li>
+                    <li><a href="user-livetracking.html"><i class="fa-solid fa-map-location-dot"></i> Live Tracking</a></li>
+                    <li><a href="user-reward.html" class="active"><i class="fa-solid fa-gift"></i> My Rewards</a></li>
+                    <li><a href="user-profile.html"><i class="fa-solid fa-user-gear"></i> My Profile</a></li>
+                </ul>
+            </div>
+            <div class="side-footer">
+                <p>© 2026 Eco-Track UAE</p>
+            </div>
+        </nav>
+
+<main class="content-area">
+            <div class="welcome-text">
+                <h1>Redeem your <span class="highlight">Impact</span></h1>
+                <p>Turn recycled waste into real-world rewards from UAE brands.</p>
+            </div>
+
+            <div class="rewards-compact-layout">
+                <!-- Compact Waste Chart -->
+                <aside class="sidebar-info">
+                    <div class="chart-card-mini branded-border">
+                        <h4>Waste Points Chart</h4>
+                        <div class="mini-list">
+                            <div class="m-row"><span>Plastic</span> <strong>10 pts/kg</strong></div>
+                            <div class="m-row"><span>Cans & Metal</span> <strong>10 pts/kg</strong></div>
+                            <div class="m-row"><span>E-Waste</span> <strong>20 pts/kg</strong></div>
+                            <div class="m-row"><span>Paper</span> <strong>10 pts/kg</strong></div>
+                            <div class="m-row"><span>Glass & Mirrors</span> <strong>15 pts/kg</strong></div>
+                        </div>
+                        <div class="bonus-box-small spring">
+                            <i class="fa-solid fa-broom"></i>
+                            <span>Spring Cleaning: 20 pts</span>
+                        </div>
+                        <div class="bonus-box-small streak">
+                            <i class="fa-solid fa-calendar-check"></i>
+                            <span>4-Week Streak: 20 pts</span>
+                        </div>
+                        <div class="compact-balance">
+                            <span>My Balance</span>
+                            <strong>0 PTS</strong>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- 9 Colorful Brand Coupons -->
+                <div class="coupons-main-grid">
+                    <div class="compact-grid">
+
+                        <!-- Baskin Robbins -->
+                        <div class="coupon-card">
+                        <div class="brand-logo-circle">
+                           <img src="../user/user-images/brr.png" alt="Baskin Robbins" class="vendor-logo">
+                           </div>
+                            <h6>Baskin Robbins</h6>
+                            <p>AED 25 Voucher</p>
+                            <span class="cost-tag">250 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+
+                        <!-- Etisalat -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/etisalat.jfif" alt="Etisalat" class="vendor-logo">
+                            </div>
+                            <h6>Etisalat by e&</h6>
+                            <p>AED 25 Credit</p>
+                            <span class="cost-tag">250 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+
+                        <!-- Deliveroo -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/delivero.png" alt="Deliveroo" class="vendor-logo">
+                            </div>
+                            <h6>Deliveroo</h6>
+                            <p>AED 30 Credit</p>
+                            <span class="cost-tag">300 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+
+                        <!-- Lulu -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/lulu.png" alt="Lulu Market" class="vendor-logo">
+                            </div>
+                            <h6>Lulu Market</h6>
+                            <p>AED 50 Voucher</p>
+                            <span class="cost-tag">500 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+
+                         <!-- Noon -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/noon1.png" alt="Noon.com" class="vendor-logo">
+                            </div>
+                            <h6>Noon</h6>
+                            <p>AED 50 Discount</p>
+                            <span class="cost-tag">500 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+
+                        <!-- organic -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/organic.jpg" alt="Organic Foods & Café" class="vendor-logo">
+                            </div>
+                            <h6>Organic Foods & Café</h6>
+                            <p>AED 50 Voucher</p>
+                            <span class="cost-tag">500 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+                       
+
+                        <!-- Carrefour -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/care4.png" alt="Carrefour" class="vendor-logo">
+                            </div>
+                            <h6>Carrefour</h6>
+                            <p>AED 100 Card</p>
+                            <span class="cost-tag">1000 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+                       
+                        <!-- amazon -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/amazon.jfif" alt="Amazon" class="vendor-logo">
+                            </div>
+                            <h6>Amazon</h6>
+                            <p>AED 100 Voucher</p>
+                            <span class="cost-tag">1000 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+                        
+                    
+                        
+                        <!-- IKEA -->
+                        <div class="coupon-card">
+                            <div class="brand-logo-circle">
+                            <img src="../user/user-images/ikea.png" alt="IKEA" class="vendor-logo">
+                            </div>
+                            <h6>IKEA UAE</h6>
+                            <p>AED 100 Card</p>
+                            <span class="cost-tag">1000 Pts</span>
+                            <button class="small-redeem-btn">Redeem Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+
+    <script src="../user/user-script.js"></script>
+</body>
+</html>

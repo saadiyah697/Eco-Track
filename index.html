@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Track </title>
+    <link rel="icon" type="image/png" href="Images/Eco-track-white-logo.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&family=Outfit:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-logo">
+        <img src="Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+        Eco-Track
+    </div>
+    
+    <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+
+    <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+        
+        <div class="glass-capsule">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/community.html">Community</a></li>
+                <li><a href="pages/smart-bins.html">Smart Bins</a></li>
+                <li><a href="pages/rewards.html">Dual Rewards</a></li>
+                <li><a href="pages/faq.html">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="nav-actions">
+            <a href="../pages/login.html" class="user-portal-link">User Portal</a>
+            <a href="../pages/driver-login.html" class="btn-login-accent">Driver Hub</a>
+        </div>
+        
+    </div>
+</nav>
+
+    <section class="hero">
+        <div class="hero-text-container animate-fade-up">
+            <h1 class="main-title">Revolutionizing Waste Management for a <br><span class="teal-text">Greener Tomorrow.</span></h1>
+            
+            <div class="subtitle-wrapper">
+                <p class="subtitle">Join a community of 15,000+ eco-warriors. Track your recycling impact, sync your smart bins, earn verified rewards, and build a circular economy all in one dashboard.</p>
+            </div>
+            
+            <div class="button-wrapper">
+                <a href="pages/login.html" class="btn-get-started">Get Started With Us</a>
+            </div>
+            
+            <p class="hero-footer-text">TRUSTED BY MUNICIPALITIES AND 70+ LOCAL BUSINESSES.</p>
+            
+            <div class="impact-cards">
+                <div class="card card-teal animate-float delay-1">
+                    <span class="card-icon">📈</span>
+                    <div class="card-info">
+                        <span class="num">500+</span>
+                        <span class="text">Tons CO₂ Offset</span>
+                    </div>
+                </div>
+                <div class="card card-navy animate-float delay-2">
+                    <span class="card-icon">🧋</span>
+                    <div class="card-info">
+                        <span class="num">2000+</span>
+                        <span class="text">Plastic Bottles</span>
+                    </div>
+                </div>
+                <div class="card card-light animate-float delay-3">
+                    <span class="card-icon">💰</span>
+                    <div class="card-info">
+                        <span class="num">Dhs 12k+</span>
+                        <span class="text">Rewards</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<div class="hero-photo-stack animate-fade-in delay-2">
+        
+        <div class="floating-widget widget-left">
+            <div class="widget-icon">♻️</div>
+            <div class="widget-text">
+                <span class="widget-title">Green Points Automated</span>
+                <span class="widget-desc">Credited for Recycling <strong style="color: var(--green-highlight);"></strong></span>
+            </div>
+        </div>
+
+        <div class="floating-widget widget-right delay-2">
+            <div class="widget-icon">🚛</div>
+            <div class="widget-text">
+                <span class="widget-title">Network Status</span>
+                <span class="widget-desc">Driver En Route</span>
+            </div>
+        </div>
+
+        <div class="floating-widget widget-bottom delay-1">
+            <div class="widget-icon">🛡️</div>
+            <div class="widget-text">
+                <span class="widget-title">Secure Login System </span>
+                <span class="widget-desc">Google Authentication Active</span>
+            </div>
+        </div>
+
+        <div class="photo-container-glow">
+            <img src="Images/header-img.png" alt="Recycling visual" class="photo" onerror="this.src='https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&q=80&w=800'">
+        </div>
+    </div>
+    </section>
+
+<div class="info-bar-container animate-fade-up delay-3">
+    <div class="info-bar">
+        <div class="info-item">
+            <span class="live-indicator"></span> 
+            <span id="live-tons">1,200.45</span> Tons Recycled
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+            🏆 Top Scorer: <span class="highlight-text">Mohammed Usman</span>
+        </div>
+        <div class="info-divider"></div>
+        <div class="info-item">
+            🚛 Next Pickup in <span id="countdown-timer" class="digital-clock">02:40:00</span>
+        </div>
+    </div>
+</div>
+
+
+<section class="how-it-works-hex">
+        <div class="hex-container">
+            <h2 class="section-title animate-fade-up">The Digital Ecosystem</h2>
+            
+            <div class="hex-grid-wrapper">
+                
+                <div class="process-line"></div>
+                
+                <div class="particle p1">🌿</div>
+                <div class="particle p2">⚙️</div> <div class="particle p3">📡</div> <div class="particle p4">✨</div>
+
+                <div class="hex-grid">
+                    
+                    <div class="hex-wrapper animate-fade-up delay-1">
+                        <div class="hex-shape">
+                            <div class="hex-number">01</div>
+                            <div class="hex-content">
+                                <h4>Schedule Pickup</h4>
+                                <p>Choose your preferred date and time through our digital portal.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hex-wrapper pulse-effect animate-fade-up delay-2">
+                        <div class="hex-shape main-hex">
+                            <div class="hex-number">02</div>
+                            <div class="hex-content">
+                                <h4>Eco‑Team Arrives</h4>
+                                <p>Our verified eco-warriors arrive at your location to collect recyclables.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hex-wrapper animate-fade-up delay-3">
+                        <div class="hex-shape">
+                            <div class="hex-number">03</div>
+                            <div class="hex-content">
+                                <h4>Earn Rewards</h4>
+                                <p>Receive Green Points for every successful pickup and redeem them for exclusive benefits.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="eco-bridge-section">
+        <h4 class="section-top-sub">Logistics Engine</h4>
+    <div class="bridge-container">
+        
+        <div class="bridge-image-area animate-fade-up">
+            <div class="main-image-card">
+                <img src="Images/trash.png" alt="Eco-Track Doorstep Pickup" class="featured-img">
+                
+                <div class="map-label top-left"><span class="dot"></span> Al Taawun Zone</div>
+                <div class="map-label bottom-right">Verified Weight: 2.4kg</div>
+            </div>
+        </div>
+
+        <div class="bridge-content-area">
+            <h2 class="bridge-title">Bridging Household Logistics with <span class="teal-gradient">Digital Impact Profiles</span></h2>
+            <p class="bridge-desc">We’ve eliminated the need for public bins by bringing the recycling center to you. Our intelligent dispatch system bridges the gap between your home and industrial recycling, ensuring your waste is collected, weighed, and rewarded instantly.</p>
+
+            <div class="feature-stack">
+                <div class="info-row hover-blue">
+                    <div class="icon-circle grey-glow">📍</div>
+                    <div class="info-text">
+                        <h3>Dynamic Route Dispatch</h3>
+                        <p>Our intelligent logistics engine automatically assigns the nearest available driver, ensuring zero‑delay doorstep pickups and optimized travel routes.</p>
+                    </div>
+                </div>
+
+                <div class="info-row hover-blue">
+                    <div class="icon-circle grey-glow">🔍</div>
+                    <div class="info-text">
+                        <h3>On-Site Weight Verification</h3>
+                        <p>Every collection is authenticated through integrated smart scales no estimates, no errors. Verified data syncs directly to your digital profile, reflecting your real‑time environmental impact.</p>
+                    </div>
+                </div>
+
+                <div class="info-row hover-blue">
+                    <div class="icon-circle grey-glow">🔗</div>
+                    <div class="info-text">
+                        <h3>100% Transparent Chain</h3>
+                        <p>Track your recyclables from pickup to processing with end‑to‑end GPS visibility. Every step is logged, verified, and accessible, ensuring complete transparency and trust.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section class="split-cta-section">
+        
+        <div class="cta-half cta-user">
+            <div class="cta-bg-shape shape-teal"></div>
+            
+            <div class="cta-content animate-fade-up">
+                <span class="cta-badge">For Households & Businesses</span>
+                <h2 class="cta-title">Ready to Make an Impact?</h2>
+                <p class="cta-desc">Join thousands of Eco-Warriors. Sync your smart bin, track your footprint, and start earning rewards today.</p>
+                <a href="pages/login.html" class="btn-cta btn-white-outline">Create User Profile</a>
+            </div>
+        </div>
+
+        <div class="cta-half cta-driver">
+            <div class="cta-bg-shape shape-navy"></div>
+            
+            <div class="cta-content animate-fade-up delay-1">
+                <span class="cta-badge badge-green">For Logistics Partners</span>
+                <h2 class="cta-title">Drive the Change.</h2>
+                <p class="cta-desc">Turn your vehicle into an asset. Complete smart-routed pickups, earn points, and build your digital fleet reputation.</p>
+                <a href="pages/driver-login.html" class="btn-cta btn-green-solid">Apply for the Fleet</a>
+            </div>
+        </div>
+    </section>
+
+    
+
+<section class="leaderboard-section">
+    <div class="leaderboard-container">
+        <h2 class="glow-text">Community Leaderboard</h2>
+        
+        <div class="podium-container animate-fade-up">
+            <div class="podium-card silver">
+                <div class="avatar-wrapper">
+                    <div class="badge">02</div>
+                    <img src="Images/winner 3.png" alt="sarah">
+                </div>
+                <h3 style="color: #ffffff;">Sarah James</h3>
+                <p class="impact">118 kg CO₂</p>
+                <span class="rank-tag"><bold>Green Warrior</bold></span>
+            </div>
+
+            <div class="podium-card gold">
+                    <div class="avatar-wrapper">
+                    <img src="Images/winner1.png" alt="Mohammed">
+                    <div class="badge">01</div>
+                </div>
+                <h3 style="color: #ffffff;">Mohammed Ali</h3>
+                <p class="impact">125 kg CO₂</p>
+                <span class="rank-tag">Elite Recycler</span>
+            </div>
+
+            <div class="podium-card bronze">
+                <div class="avatar-wrapper">
+                    <div class="badge">03</div>
+                    <img src="Images/winner2.png" alt="zoya">
+                </div>
+                <h3 style="color: #ffffff;">Zoya Mirza</h3>
+                <p class="impact">95 kg CO₂</p>
+                <span class="rank-tag">Rising Hero</span>
+            </div>
+        </div>
+
+        <div class="leaderboard-list animate-fade-up delay-1">
+            <div class="list-row">
+                <span class="list-rank">04</span>
+                <span class="list-name">Elena Rodriguez</span>
+                <span class="list-impact">73 kg</span>
+            </div>
+            <div class="list-row">
+                <span class="list-rank">05</span>
+                <span class="list-name">Kevin Park</span>
+                <span class="list-impact">65 kg</span>
+            </div>
+            <div class="list-row">
+                <span class="list-rank">06</span>
+                <span class="list-name">Alina Rasheed</span>
+                <span class="list-impact">59 kg</span>
+            </div>
+            <div class="list-row">
+                <span class="list-rank">07</span>
+                <span class="list-name">Ibrahim Khan</span>
+                <span class="list-impact">51 kg</span>
+            </div>
+            <div class="list-row">
+                <span class="list-rank">08</span>
+                <span class="list-name">Ethan Miller</span>
+                <span class="list-impact">47 kg</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+<section class="logistics-command-section">
+    <div class="command-header animate-fade-up">
+        <h2 class="dispatch-main-title">Real‑Time Dispatch Intelligence</h2>
+        <div class="dispatch-status-bar">
+            <span class="status-pulse"></span> System Live: Sharjah
+        </div>
+    </div>
+
+    <div class="command-grid">
+        <div class="hud-column">
+            <div class="glass-panel animate-fade-up delay-1">
+                <h4>Fleet Activity</h4>
+                <div class="stat-item">
+                    <span class="label">Active Units</span>
+                    <span class="value">14 Units</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">CO2 Saved</span>
+                    <span class="value highlight-lime glow-text">2.6 Tons</span>
+                </div>
+            </div>
+            
+            <div class="glass-panel zone-highlight animate-fade-up delay-2">
+                <div class="zone-header">
+                    <div class="zone-icon-box">📍</div>
+                    <div>
+                        <h4 class="small-text highlight-lime">Top Performing Zone</h4>
+                        <strong class="white-text">Al Nahda</strong>
+                    </div>
+                </div>
+                
+                <div class="zone-metrics">
+                    <div class="metric-row">
+                        <span class="metric-label">Pickups Completed</span>
+                        <span class="metric-value">240</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Efficiency Score</span>
+                        <span class="metric-value highlight-lime">70%</span>
+                    </div>
+                </div>
+                
+                <div class="efficiency-bar-container">
+                    <div class="efficiency-fill"></div>
+                </div>
+            </div>
+        </div>
+
+<div class="map-viewport animate-fade-up">
+            <iframe 
+                src="https://maps.google.com/maps?q=Sharjah&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                class="live-map-iframe"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+        <div class="hud-column">
+            <div class="glass-panel animate-fade-up delay-3">
+                <h4>Live Queue</h4>
+                <div class="queue-card status-dispatch">
+                    <p><strong>Al Majaz 2</strong></p>
+                    <span class="status-text">Dispatching</span>
+                </div>
+                <div class="queue-card status-enroute">
+                    <p><strong>Muwaileh</strong></p>
+                    <span class="status-text">Driver En-Route</span>
+                </div>
+                <div class="queue-card status-pickup">
+                    <p><strong>University City</strong></p>
+                    <span class="status-text">Pickup In Progress</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+
+    <section class="testimonials-section">
+
+        <div class="testimo-bg-elements">
+            <div class="testimo-blob blob-1"></div>
+            <div class="testimo-blob blob-2"></div>
+        </div>
+
+        <div class="testimonials-container">
+            
+            <div class="section-header animate-fade-up">
+                <h2 class="section-title">Trusted by the Community</h2>
+                <p class="section-subtitle">See how our digital ecosystem is transforming waste management for households, drivers, and local businesses across the region.</p>
+            </div>
+
+            <div class="reviews-grid">
+                
+                <div class="review-card animate-fade-up delay-1">
+                    <div class="quote-icon">❝</div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The smart bin sync is flawless. I used to manually separate and guess the weights, but now the dashboard tracks everything in real-time. Earning points for weekly pickups in Dubai Marina has been incredibly rewarding."</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">SJ</div>
+                        <div class="reviewer-details">
+                            <span class="reviewer-name">Sarah J.</span>
+                            <span class="reviewer-role">Household Recycler</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-fade-up delay-2">
+                    <div class="quote-icon">❝</div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"The driver hub completely changed how I work. The GPS routing is optimized so I never waste fuel, and the instant point deposits the moment I click 'Task Completed' keeps me motivated on every single shift."</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar driver-avatar">AR</div>
+                        <div class="reviewer-details">
+                            <span class="reviewer-name">Ahmed R.</span>
+                            <span class="reviewer-role">Active Fleet Driver</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card animate-fade-up delay-3">
+                    <div class="quote-icon">❝</div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <p class="review-text">"Partnering with this network for our commercial waste in Ajman has cut our disposal costs by 30%. The transparent reporting and error-free categorization align perfectly with our corporate sustainability goals."</p>
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar business-avatar">GL</div>
+                        <div class="reviewer-details">
+                            <span class="reviewer-name">GreenTech Logistics</span>
+                            <span class="reviewer-role">Commercial Partner</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    
+
+    <section class="contact-section" id="contact">
+          <div class="contact-bg-glow"></div>
+          <div class="contact-mesh-overlay"></div>
+          <div class="contact-container">
+            
+            <div class="contact-info animate-fade-up">
+                <h3 class="section-title text-white">Let's Build a Greener Future.</h3>
+                <p class="contact-subtitle">Whether you are a municipality looking to scale smart infrastructure, or a resident with a dashboard question, our team is ready to assist.</p>
+                
+                <div class="contact-details">
+                    <div class="detail-item">
+                        <div class="detail-icon">📍</div>
+                        <div class="detail-text">
+                            <strong>Headquarters</strong>
+                            <span>Tech Innovation Hub, Sharjah, UAE</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">✉️</div>
+                        <div class="detail-text">
+                            <strong>Email Us</strong>
+                            <span>support@eco-track.ae</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <div class="detail-icon">📞</div>
+                        <div class="detail-text">
+                            <strong>Call Us</strong>
+                            <span>+971 50 871 2479</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           <div class="contact-form-wrapper animate-fade-up delay-1">
+           <form action="https://api.web3forms.com/submit" method="POST" class="glass-form">
+        
+           <h3 class="form-title">Send a Message</h3>
+        
+           <input type="hidden" name="access_key" value="80239ac7-a2ad-4064-abac-28faaaa8caa0">
+        
+            <div class="input-group">
+            <input type="text" name="name" class="form-input" placeholder="Full Name" required>
+            </div>
+        
+            <div class="input-group">
+            <input type="email" name="email" class="form-input" placeholder="Email Address" required>
+            </div>
+        
+            <div class="input-group">
+            <select name="inquiry_type" class="form-input" required>
+                <option value="" disabled selected>Select Inquiry Type...</option>
+                <option value="household">Household Account Support</option>
+                <option value="driver">Fleet Driver Application</option>
+                <option value="business">Commercial Partnership</option>
+            </select>
+            </div>
+        
+            <div class="input-group">
+            <textarea name="message" class="form-input" rows="4" placeholder="How can we help you?" required></textarea>
+           </div>
+        
+        <button type="submit" class="btn-submit-form">Send Message</button>
+        </form>
+        </div>
+
+        </div>
+    </section>
+    
+
+    <footer class="mega-footer">
+        
+    <div class="footer-bg-grid"></div>
+        
+        <div class="footer-particles">
+            <div class="f-particle fp-1"></div>
+            <div class="f-particle fp-2"></div>
+            <div class="f-particle fp-3"></div>
+            <div class="f-particle fp-4"></div>
+        </div>
+
+        <div class="footer-laser"></div>
+        
+        <div class="footer-container">
+            
+            <div class="footer-col brand-col animate-fade-up">
+                <div class="nav-logo text-white" style="margin-bottom: 20px;">
+                    <img src="Images/Eco-track-white-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+                    Eco-Track
+                </div>
+                <p class="footer-about">Eco-Track is designing the technology that will power tomorrow’s cleaner world. Smarter systems, greener cities, and a connected ecosystem built for the next generation.</p>
+                <div class="footer-newsletter">
+                    <h4>Subscribe to Eco-Blog</h4>
+                    <div class="newsletter-box">
+                        <input type="email" placeholder="Email address" class="news-input">
+                        <button class="btn-news">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+             <div class="footer-col animate-fade-up delay-1">
+           <h4 class="footer-title">Office</h4>
+           <div class="office-info">
+         <p class="office-text">United Arab Emirates</p>
+         <p class="office-text">Tech Innovation Hub, Dubai</p>
+         <p class="office-text">Horizon Tech Tower</p>
+         <p class="office-text support">Email: support@ecotrack.com</p>
+         <p class="office-text">Phone: +971 50 871 2479</p>
+           </div>
+              </div>
+
+            <div class="footer-col animate-fade-up delay-1">
+                <h4 class="footer-title">Platform</h4>
+                <ul class="footer-links">
+                    <li><a href="pages/community.html">Our Ecosystem</a></li>
+                    <li><a href="pages/smart-bins.html">Smart Bin Tech</a></li>
+                    <li><a href="pages/rewards.html">Reward System</a></li>
+                    <li><a href="pages/community.html#waste-guide-section">Interactive Waste Guide</a></li>
+                    
+                </ul>
+            </div>
+
+            <div class="footer-col animate-fade-up delay-2">
+                <h4 class="footer-title">Access Portals</h4>
+                <ul class="footer-links">
+                    <li><a href="pages/login.html">User Dashboard</a></li>
+                    <li><a href="pages/driver-login.html">Driver Hub</a></li>
+                    
+                   
+                </ul>
+            </div>
+
+            <div class="footer-col animate-fade-up delay-3">
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#contact">Contact Support</a></li>
+                    <li><a href="../pages/faq.html">System FAQs</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <div class="bottom-container">
+                <p>&copy; 2026 Eco-Track. All Rights Reserved by Saadiyah.</p>
+                
+                <div class="social-links">
+                    <a href="#" class="social-icon" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="javascript/script.js"></script>
+</body>
+</html>

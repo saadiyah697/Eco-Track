@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Track | Driver Pro</title>
+    <link rel="icon" type="image/x-icon" href="../drivers/Images/Eco-track-white-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../drivers/drivers-style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+    <aside class="sidebar">
+    <div class="sidebar-top">
+    <div class="company-brand">
+    <div class="logo-wrap">
+        <img src="../drivers/Images/Eco-track-white-logo.png" alt="Eco-Track Logo">
+    </div>
+    <div class="brand-text">
+        <span class="company-name">ECO-TRACK</span>
+        <span class="company-tagline">Logistics Solutions</span>
+    </div>
+    </div>
+
+<ul class="nav-menu">
+    <li class="active"><a href="#"><i class="ph ph-grid-four"></i> Overview</a></li>
+    <li><a href="#collection-mix"><i class="ph ph-package"></i> Waste Logs</a></li>
+    <li><a href="../drivers/driver-pickuprecords.html"><i class="ph ph-clock-counter-clockwise"></i> Pickup History</a></li>
+    <li><a href="../drivers/driver-reward.html"><i class="ph ph-star"></i> My Rewards</a></li>
+    <li><a href="#vehicle-health"><i class="ph ph-truck"></i> Vehicle Status</a></li>
+    <li><a href="../drivers/driver-report.html"><i class="ph ph-warning-circle"></i> Help Desk</a></li>
+    <li><a href="../drivers/driver-alert.html"><i class="ph ph-bell"></i> Alerts & Notfications</a></li>
+    <li><a href="../drivers/driver-profile.html"><i class="ph ph-user-circle"></i> My Profile</a></li>
+</ul>
+
+</div>
+
+    <div class="sidebar-footer">
+    <div class="user-card">
+    <div class="avatar">RA</div>
+    <div class="user-info">
+        <span class="user-name">Rayan Ahmed</span>
+        <span class="user-role">Senior Fleet Operator</span>
+    </div>
+    </div>
+        <button class="logout-btn">Logout</button>
+    </div>
+    </aside>
+
+<main class="main-content">
+        <header class="page-header">
+        <div class="header-main">
+        <h1>My Dashboard</h1>
+        <p id="live-date" class="date-string">Wednesday, May 13, 2026 | Shift: 08:00 - 17:00</p>
+        </div>
+        <div class="duty-badge"><span class="pulse-dot"></span> On Duty</div>
+        </header>
+
+    <div class="metrics-row">
+    <div class="oval-card">
+        <div class="icon-wrap"><i class="ph ph-clock"></i></div>
+        <div class="stat"><span class="lbl">On-Duty</span><span class="val">05 hrs</span></div>
+    </div>
+
+    <div class="oval-card">
+        <div class="icon-wrap"><i class="ph ph-gauge"></i></div>
+        <div class="stat"><span class="lbl">Efficiency</span><span class="val">80.2%</span></div>
+    </div>
+
+    <div class="oval-card">
+        <div class="icon-wrap"><i class="ph ph-scales"></i></div>
+        <div class="stat"><span class="lbl">Daily Load</span><span id="daily-total-kg" class="val">0 kg</span></div>
+    </div>
+
+    <div class="oval-card">
+        <div class="icon-wrap"><i class="ph ph-star"></i></div>
+        <div class="stat"><span class="lbl">My Rating</span><span id="driver-points" class="val">⭐⭐⭐⭐</span></div>
+    </div>
+    </div>
+
+    <div class="main-grid">
+    <div class="grid-col">
+                    
+<section class="card assignment-card" id="current-task">
+    <div class="card-title">
+        <h3>Current Task</h3>
+        <div class="time-badge"><i class="ph ph-timer"></i><span>11:30 AM</span></div>
+    </div>
+    
+    <div class="location-banner">
+        <div class="loc-icon-circle"><i class="ph-fill ph-navigation-arrow"></i></div>
+        <div class="loc-details">
+            <label>PICKUP LOCATION</label>
+            <p class="loc-text">Al Jada Residential, Block C, Sharjah</p>
+        </div>
+        </div>
+        <div class="task-info-row">
+        <div class="info-item"><label>CARGO</label><p>Plastic Bottles</p></div>
+        <div class="info-item"><label>ACCESS</label><p>Code: #1244</p></div>
+        </div>
+        <div class="btn-group">
+            <button class="primary-btn">Start Navigation</button>
+            <button class="complete-btn" onclick="openEntryModal()">Task Completed</button>
+        </div>
+</section>
+
+<section class="card vehicle-card" id="vehicle-health">
+        <h3>Vehicle Health - #40825</h3>
+        <div class="health-list">
+            <div class="health-item"><span>Engine Status</span><span class="tag-ok">Optimal</span></div>
+            <div class="health-item"><span>Tyre Pressure</span><span class="tag-warn">Check Front-L</span></div>
+            <div class="health-item"><span>Oil Life</span><span class="tag-ok">90%</span></div>
+        </div>
+</section>
+
+    </div>
+
+        <div class="grid-col">
+<section class="card schedule-card">
+            <h3>Next Pickups</h3>
+
+        <div class="stop-item">
+        <div class="stop-time">12:30</div>
+        <div class="stop-info">
+            <strong>Muwaileh Commercial Area</strong>
+            <span class="waste-type-tag paper">Paper & Cardboard</span>
+        </div>
+            <span class="status-pill pending">Pending</span>
+        </div>
+
+        <div class="stop-item">
+        <div class="stop-time">13:45</div>
+        <div class="stop-info">
+            <strong>Al Nahda Park</strong>
+            <span class="waste-type-tag ewaste">Cans & Tins</span>
+        </div>
+            <span class="status-pill pending">Pending</span>
+        </div>
+                    
+
+        <div class="stop-item">
+        <div class="stop-time">15:00</div>
+        <div class="stop-info">
+            <strong>Industrial Area 4</strong>
+            <span class="waste-type-tag ewaste">Electronic Waste</span>
+        </div>
+            <span class="status-pill pending">Pending</span>
+        </div>
+</section>
+
+<section class="card material-card" id="collection-mix">
+        <h3>Daily Collection (kg)</h3>
+        <div class="mix-container">
+                            
+        <div class="mix-progress">
+            <div class="mix-info"><span>E - waste</span><span id="label-ewaste">0 kg</span></div>
+            <div class="bar-bg"><div id="bar-ewaste" class="bar-fill" style="width: 0%"></div></div>
+        </div>
+        
+        <div class="mix-progress">
+        <div class="mix-info"><span>Plastic Grade A</span><span id="label-plastic">0 kg</span></div>
+        <div class="bar-bg"><div id="bar-plastic" class="bar-fill" style="width: 0%"></div></div>
+        </div>
+                            
+        <div class="mix-progress">
+        <div class="mix-info"><span>Mirrors & Glasses</span><span id="label-glass">0 kg</span></div>
+        <div class="bar-bg"><div id="bar-glass" class="bar-fill" style="width: 0%"></div></div>
+        </div>
+                    
+        <div class="mix-progress">
+        <div class="mix-info"><span>Cans & Tins</span><span id="label-metal">0 kg</span></div>
+        <div class="bar-bg"><div id="bar-metal" class="bar-fill" style="width: 0%"></div></div>
+        </div>
+                        
+        <div class="mix-progress">
+        <div class="mix-info"><span>Paper & Cardboard</span><span id="label-paper">0 kg</span></div>
+        <div class="bar-bg"><div id="bar-paper" class="bar-fill" style="width: 0%"></div></div>
+        </div>
+                        
+    </div>
+</section>
+        </div>
+        </div>
+ </main>
+        </div>
+
+    <!-- Collection Modal -->
+    <div id="entryModal" class="modal-overlay">
+    <div class="modal-content">
+    <div class="modal-header">
+    <div class="header-text">
+        <h3>Log Collection Details</h3>
+        <p>Record weights to credit user points</p>
+    </div>
+    </div>
+
+    <div class="category-grid">
+        <div class="entry-box"><label><i class="ph ph-cpu"></i> Electronic Waste (kg)</label><input type="number" id="w-ewaste" value="0"></div>
+        <div class="entry-box"><label><i class="ph ph-bottles"></i> Plastic (kg)</label><input type="number" id="w-plastic" value="0"></div>
+        <div class="entry-box"><label><i class="ph ph-drop"></i> Glass (kg)</label><input type="number" id="w-glass" value="0"></div>
+        <div class="entry-box"><label><i class="ph ph-codepen-logo"></i> Cans & Tins (kg)</label><input type="number" id="w-metal" value="0"></div>
+        <div class="entry-box"><label><i class="ph ph-file-text"></i> Paper & Cardboard (kg)</label><input type="number" id="w-paper" value="0"></div>
+        <div class="entry-box"><label><i class="ph ph-broom"></i> Bulk (kg)</label><input type="number" id="w-bulk" value="0"></div>
+    </div>
+    <div class="modal-footer">
+        <button class="cancel-btn" onclick="closeEntryModal()">Cancel</button>
+        <button class="confirm-btn" onclick="updateDailyStats()">Confirm & Process</button>
+    </div>
+    </div>
+    </div>
+
+<script src="../drivers/driver-script.js"></script>
+</body>
+</html>
