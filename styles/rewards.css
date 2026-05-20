@@ -229,3 +229,185 @@
 @media (max-width: 1000px) {
     .rewards-display-grid { grid-template-columns: 1fr; }
 }
+
+/* =========================================
+   NEW: REDEMPTION CATALOG SECTION
+========================================= */
+.redemption-catalog {
+    margin-top: 80px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.catalog-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.catalog-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    color: var(--navy-text);
+    margin-bottom: 10px;
+}
+
+.catalog-header p {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.catalog-card {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(34, 60, 86, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.catalog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(26, 188, 156, 0.15);
+}
+
+.catalog-image {
+    height: 140px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Subtle gradient backgrounds to make the logos pop */
+.noon-bg { background: linear-gradient(135deg, #fdfbf3, #f4e8b1); }
+.careem-bg { background: linear-gradient(135deg, #ebf7eb, #b8e6b8); }
+.cafu-bg { background: linear-gradient(135deg, #e6f7fa, #a3e4ed); }
+
+.catalog-image img {
+    max-height: 60px;
+    max-width: 80%;
+    object-fit: contain;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+    transition: transform 0.3s ease;
+}
+
+.catalog-card:hover .catalog-image img {
+    transform: scale(1.1);
+}
+
+.pts-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--navy-text);
+    color: var(--lime-eco);
+    padding: 6px 12px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.catalog-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.catalog-info h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.25rem;
+    color: var(--navy-text);
+    margin-bottom: 8px;
+}
+
+.catalog-info p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.btn-redeem {
+    width: 100%;
+    padding: 12px;
+    border-radius: 12px;
+    border: 2px solid var(--teal-eco);
+    background: transparent;
+    color: var(--teal-eco);
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.catalog-card:hover .btn-redeem {
+    background: var(--teal-eco);
+    color: var(--white);
+    box-shadow: 0 10px 20px rgba(26, 188, 156, 0.2);
+}
+
+/* =========================================
+   RESPONSIVENESS (Fixes the Squishing)
+========================================= */
+
+/* Tablets & Small Laptops */
+@media (max-width: 1024px) {
+    .rewards-wrapper {
+        padding-top: 140px; /* Accounts for the fixed navbar */
+    }
+    
+    .rewards-display-grid {
+        grid-template-columns: 1fr; /* Stacks the two main eco-cards */
+        max-width: 700px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for catalog */
+    }
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+    .rewards-wrapper {
+        padding-top: 120px;
+    }
+
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .main-tagline {
+        font-size: 1.1rem;
+        padding: 0 15px;
+    }
+
+    .eco-card {
+        padding: 25px;
+        border-radius: 25px;
+    }
+
+    .item-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .point-value {
+        align-self: flex-end; /* Pushes the points to the right on stacked view */
+    }
+
+    .catalog-grid {
+        grid-template-columns: 1fr; /* Single column catalog */
+        padding: 0 5%;
+    }
+
+    .catalog-header h2 {
+        font-size: 1.8rem;
+    }
+}

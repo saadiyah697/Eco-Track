@@ -574,10 +574,190 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 
-footer {
-    padding: 40px;
-    text-align: center;
-    background: #1a2a3a;
-    color: var(--muted-gray);
-    font-size: 0.9rem;
+/* =========================================
+   PREMIUM DESIGN TOUCHES & ANIMATIONS
+========================================= */
+
+/* 1. Cinematic Hero Scanlines */
+.hero-alt {
+    position: relative; /* Ensure the overlay stays inside the hero */
+}
+
+.hero-alt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    /* Creates a subtle, high-tech horizontal line pattern over the image */
+    background: repeating-linear-gradient(
+        transparent 0px, transparent 3px,
+        rgba(255,255,255,0.03) 3px, rgba(255,255,255,0.03) 6px
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Keeps text above the scanlines */
+}
+
+/* 2. Educational Cards: Glass Shimmer Effect */
+.card-inner {
+    position: relative; /* Required for the shimmer to clip correctly */
+}
+
+.card-inner::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: -150%;
+    width: 50%; 
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transform: skewX(-25deg);
+    z-index: 10;
+    pointer-events: none;
+}
+
+.glass-card:hover .card-inner::before {
+    animation: shimmerSweep 0.75s ease-in-out forwards;
+}
+
+@keyframes shimmerSweep { 
+    100% { left: 200%; } 
+}
+
+/* 3. Kinetic Cards: The Rotating Inner Glow */
+.kinetic-card {
+    position: relative;
+}
+
+.inner-glow {
+    position: absolute;
+    top: -50%; 
+    left: -50%;
+    width: 200%; 
+    height: 200%;
+    /* Creates a soft teal orb hidden in the center of the card */
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.08) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.kinetic-card:hover .inner-glow {
+    opacity: 1;
+    animation: rotateGlow 8s linear infinite;
+}
+
+@keyframes rotateGlow { 
+    100% { transform: rotate(360deg); } 
+}
+
+/* Ensure the text stays above the glow */
+.kinetic-card .card-top, 
+.kinetic-card .main-stat, 
+.kinetic-card .stat-title, 
+.kinetic-card p, 
+.kinetic-card .progress-line {
+    position: relative; 
+    z-index: 1;
+}
+
+/* 4. Magnetic Search Bar Focus */
+.input-wrapper { 
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+/* Snaps slightly larger when the user clicks inside to type */
+.input-wrapper:focus-within {
+    transform: scale(1.02);
+}
+
+#wasteSearch:focus {
+    box-shadow: 0 15px 35px rgba(26, 188, 156, 0.15);
+    border-color: var(--teal-action);
+}
+
+/* =========================================
+   COMMUNITY PAGE RESPONSIVENESS & ANIMATIONS
+========================================= */
+
+/* Interactive Pulse Animation for the Search Icon */
+.search-inside-icon {
+    animation: searchPulse 2.5s infinite ease-in-out;
+}
+
+@keyframes searchPulse {
+    0% { transform: translateY(-50%) scale(1); opacity: 0.6; color: var(--deep-navy); }
+    50% { transform: translateY(-50%) scale(1.15); opacity: 1; color: var(--teal-action); }
+    100% { transform: translateY(-50%) scale(1); opacity: 0.6; color: var(--deep-navy); }
+}
+
+/* 1. Large Tablets & Small Laptops (Max-width: 1200px) */
+@media (max-width: 1200px) {
+    .article-grid-unique {
+        grid-template-columns: repeat(2, 1fr); /* Switch from 3 columns to 2 */
+        gap: 30px;
+    }
+}
+
+/* 2. Standard Tablets (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .kinetic-grid { 
+        grid-template-columns: repeat(2, 1fr); /* Switch Kinetic cards to 2 columns */
+        gap: 30px;
+    }
+    
+    .hero-alt {
+        min-height: 400px;
+        padding: 160px 5% 80px; /* Ensures text clears the navbar */
+    }
+    
+    .hub-header {
+        margin-top: 0; /* Fixes overlap issue on tablets */
+    }
+}
+
+/* 3. Mobile Phones (Max-width: 768px) */
+@media (max-width: 768px) {
+    /* Scale down all massive typography */
+    .hero-content h1 { font-size: 2.2rem; }
+    .modern-heading, .sharp-heading, .pro-heading { font-size: 2rem; line-height: 1.2; }
+    .hero-content p, .section-sub, .hub-subtitle, .guide-subtitle { font-size: 1.05rem; }
+
+    /* Force all grids into a clean, single vertical column */
+    .article-grid-unique, .kinetic-grid { 
+        grid-template-columns: 1fr; 
+        padding: 0 5%;
+    }
+
+    /* Adjust padding to prevent horizontal scrolling */
+    .kinetic-hub {
+        padding: 80px 5%;
+    }
+    
+    .waste-guide-section {
+        padding: 60px 5%;
+    }
+
+    /* Shrink the paddings inside the kinetic cards */
+    .kinetic-card {
+        padding: 35px 25px; 
+    }
+    
+    .main-stat {
+        font-size: 2.8rem;
+    }
+
+    /* Adjust the search bar for smaller mobile screens */
+    #wasteSearch {
+        font-size: 1rem;
+        padding: 14px 45px 14px 20px;
+    }
+    
+    .status-indicator-bar {
+        text-align: center;
+    }
 }

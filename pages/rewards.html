@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Track</title>
+    <title>Dual Rewards | Eco-Track</title>
     <link rel="icon" type="image/png" href="../Images/Eco-track-white-logo.png">
     <link rel="stylesheet" href="../styles/style.css">
-     <link rel="stylesheet" href="../styles/rewards.css">
+    <link rel="stylesheet" href="../styles/rewards.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -17,188 +17,220 @@
 <body>
 
 <nav class="navbar">
-    <div class="nav-logo">
-        <img src="../Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
-        Eco-Track
-    </div>
-    <div class="glass-capsule">
-        <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/community.html">Community</a></li>
-            <li><a href="../pages/smart-bins.html">Smart Bins</a></li>
-            <li><a href="rewards.html">Dual Rewards</a></li>
-            <li><a href="../pages/faq.html">FAQ</a></li>
-        </ul>
-    </div>
-    <div class="nav-actions">
-        <a href="../pages/login.html" class="user-portal-link">User Portal</a>
-        <a href="../pages/driver-login.html" class="btn-login-accent">Driver Hub</a>
-    </div>
-</nav>
+        <div class="nav-logo">
+            <img src="../Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+            Eco-Track
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+            <div class="glass-capsule">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="smart-bins.html">Smart Bins</a></li>
+                    <li><a href="rewards.html" class="active">Dual Rewards</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-portal-link">User Portal</a>
+                <a href="driver-login.html" class="btn-login-accent">Driver Hub</a>
+            </div>
+        </div>
+    </nav>
 
 
 
 <main class="rewards-wrapper">
 
-<header class="page-main-header">
-    <h1 class="main-title">Your Impact, Your Rewards</h1>
-    <p class="main-tagline">Turning your sustainable actions into valuable impact.</p>
-</header>
+        <header class="page-main-header animate-fade-up">
+            <h1 class="main-title">Your Impact, Your Rewards</h1>
+            <p class="main-tagline">Turning your sustainable actions into valuable impact.</p>
+        </header>
 
-    <div class="rewards-display-grid">
-
-    
-        
-        <!-- USER EARNINGS CARD -->
-        <section class="eco-card">
-            <div class="card-intro">
-                <i data-lucide="award" class="main-icon"></i>
-                <div class="intro-text">
-                    <h2>Eco-Track Member Rewards</h2>
-                    <p>Points Earned per kilogram recycled</p>
+        <div class="rewards-display-grid animate-fade-up delay-1">
+            <section class="eco-card">
+                <div class="card-intro">
+                    <i data-lucide="award" class="main-icon"></i>
+                    <div class="intro-text">
+                        <h2>Eco-Track Member Rewards</h2>
+                        <p>Points Earned per kilogram recycled</p>
+                    </div>
                 </div>
+
+                <div class="item-list">
+                    <div class="item-row">
+                        <div class="item-info">
+                            <i data-lucide="cpu"></i>
+                            <div>
+                                <span class="name">Electronic Waste</span>
+                                <span class="sub">Hardware & Gadgets</span>
+                            </div>
+                        </div>
+                        <div class="point-value">20 <small>Pts/KG</small></div>
+                    </div>
+
+                    <div class="item-row">
+                        <div class="item-info">
+                            <i data-lucide="droplet"></i>
+                            <div>
+                                <span class="name">Plastic Grade A</span>
+                                <span class="sub">PET & HDPE Bottles</span>
+                            </div>
+                        </div>
+                        <div class="point-value">10 <small>Pts/KG</small></div>
+                    </div>
+
+                    <div class="item-row">
+                        <div class="item-info">
+                            <i data-lucide="glass-water"></i>
+                            <div>
+                                <span class="name">Pure Glass Cullet</span>
+                                <span class="sub">Mirrors & Glasses</span>
+                            </div>
+                        </div>
+                        <div class="point-value">15 <small>Pts/KG</small></div>
+                    </div>
+
+                    <div class="item-row">
+                        <div class="item-info">
+                            <i data-lucide="archive"></i>
+                            <div>
+                                <span class="name">Cans & Tins</span>
+                                <span class="sub">Aluminum & Steel</span>
+                            </div>
+                        </div>
+                        <div class="point-value">10 <small>Pts/KG</small></div>
+                    </div>
+
+                    <div class="item-row">
+                        <div class="item-info">
+                            <i data-lucide="file-text"></i>
+                            <div>
+                                <span class="name">Paper & Cardboard</span>
+                                <span class="sub">Cartons & Newspapers</span>
+                            </div>
+                        </div>
+                        <div class="point-value">10 <small>Pts/KG</small></div>
+                    </div>
+
+                    <div class="item-row special-highlight">
+                        <div class="item-info">
+                            <i data-lucide="sparkles"></i>
+                            <div>
+                                <span class="name">Spring Cleaning</span>
+                                <span class="sub">Bulk Residential Pickup</span>
+                            </div>
+                        </div>
+                        <div class="point-value lime-points">20 <small>Pts/KG</small></div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="eco-card">
+                <div class="card-intro">
+                    <i data-lucide="truck" class="main-icon"></i>
+                    <div class="intro-text">
+                        <h2>Fleet Specialist Operations Hub</h2>
+                        <p>Performance Multipliers</p>
+                    </div>
+                </div>
+
+                <div class="incentive-stack">
+                    <div class="incentive-box">
+                        <i data-lucide="navigation"></i>
+                        <div class="inc-details">
+                            <h3>Base Collection</h3>
+                            <p>Earned per successful pickup</p>
+                        </div>
+                        <div class="inc-points">5 Pts</div>
+                    </div>
+
+                    <div class="incentive-box">
+                        <i data-lucide="timer"></i>
+                        <div class="inc-details">
+                            <h3>On-Time Bonus</h3>
+                            <p>Arrival within time window</p>
+                        </div>
+                        <div class="inc-points">5 Pts</div>
+                    </div>
+
+                    <div class="incentive-box highlight-box">
+                        <i data-lucide="trending-up"></i>
+                        <div class="inc-details">
+                            <h3>Consistency Target</h3>
+                            <p>Bonus for 5 tasks per day</p>
+                        </div>
+                        <div class="inc-points">10 Pts</div>
+                    </div>
+
+                    <div class="incentive-box elite-box">
+                        <i data-lucide="star"></i>
+                        <div class="inc-details">
+                            <h3>Elite Performance</h3>
+                            <p>Bonus for 10 tasks per day</p>
+                        </div>
+                        <div class="inc-points">20 Pts</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section class="redemption-catalog animate-fade-up delay-2">
+            <div class="catalog-header">
+                <h2>Unlock the Ecosystem</h2>
+                <p>Redeem your Green Points instantly with our verified partners.</p>
             </div>
-
-            <div class="item-list">
-                <div class="item-row">
-                    <div class="item-info">
-                        <i data-lucide="cpu"></i>
-                        <div>
-                            <span class="name">Electronic Waste</span>
-                            <span class="sub">Hardware & Gadgets</span>
-                        </div>
+            
+            <div class="catalog-grid">
+                <div class="catalog-card">
+                    <div class="catalog-image noon-bg">
+                        <img src="../Images/partner 3.png" alt="Noon" onerror="this.style.display='none'">
+                        <span class="pts-badge">500 Pts</span>
                     </div>
-                    <div class="point-value">20 <small>Pts/KG</small></div>
+                    <div class="catalog-info">
+                        <h4>50 AED Noon Voucher</h4>
+                        <p>Valid for all express items.</p>
+                        <button class="btn-redeem">Redeem Now</button>
+                    </div>
                 </div>
 
-                <div class="item-row">
-                    <div class="item-info">
-                        <i data-lucide="droplet"></i>
-                        <div>
-                            <span class="name">Plastic Grade A</span>
-                            <span class="sub">PET & HDPE Bottles</span>
-                        </div>
+                <div class="catalog-card">
+                    <div class="catalog-image careem-bg">
+                        <img src="../Images/partner9.jfif" alt="Careem" onerror="this.style.display='none'">
+                        <span class="pts-badge">300 Pts</span>
                     </div>
-                    <div class="point-value">10 <small>Pts/KG</small></div>
+                    <div class="catalog-info">
+                        <h4>30% Off Careem Ride</h4>
+                        <p>Valid for Hala Taxi & standard rides.</p>
+                        <button class="btn-redeem">Redeem Now</button>
+                    </div>
                 </div>
 
-                <div class="item-row">
-                    <div class="item-info">
-                        <i data-lucide="glass-water"></i>
-                        <div>
-                            <span class="name">Pure Glass Cullet</span>
-                            <span class="sub">Mirrors & Glasses</span>
-                        </div>
+                <div class="catalog-card">
+                    <div class="catalog-image cafu-bg">
+                        <img src="../Images/partner6.png" alt="CAFU" onerror="this.style.display='none'">
+                        <span class="pts-badge">800 Pts</span>
                     </div>
-                    <div class="point-value">15 <small>Pts/KG</small></div>
-                </div>
-
-                <div class="item-row">
-                    <div class="item-info">
-                        <i data-lucide="archive"></i>
-                        <div>
-                            <span class="name">Cans & Tins</span>
-                            <span class="sub">Aluminum & Steel</span>
-                        </div>
+                    <div class="catalog-info">
+                        <h4>Free Supershine Wash</h4>
+                        <p>Complete exterior & interior cleaning.</p>
+                        <button class="btn-redeem">Redeem Now</button>
                     </div>
-                    <div class="point-value">10 <small>Pts/KG</small></div>
-                </div>
-
-                <div class="item-row">
-                    <div class="item-info">
-                        <i data-lucide="file-text"></i>
-                        <div>
-                            <span class="name">Paper & Cardboard</span>
-                            <span class="sub">Cartons & Newspapers</span>
-                        </div>
-                    </div>
-                    <div class="point-value">10 <small>Pts/KG</small></div>
-                </div>
-
-                <div class="item-row special-highlight">
-                    <div class="item-info">
-                        <i data-lucide="sparkles"></i>
-                        <div>
-                            <span class="name">Spring Cleaning</span>
-                            <span class="sub">Bulk Residential Pickup </span>
-                        </div>
-                    </div>
-                    <div class="point-value lime-points">20 <small>Pts/KG</small></div>
                 </div>
             </div>
         </section>
 
-        <!-- PARTNER HUB CARD -->
-        <section class="eco-card">
-            <div class="card-intro">
-                <i data-lucide="truck" class="main-icon"></i>
-                <div class="intro-text">
-                    <h2>Fleet Specialist Operations Hub</h2>
-                    <p>Performance Multipliers</p>
-                </div>
-            </div>
+    </main>
 
-            <div class="incentive-stack">
-                <div class="incentive-box">
-                    <i data-lucide="navigation"></i>
-                    <div class="inc-details">
-                        <h3>Base Collection</h3>
-                        <p>Earned per successful pickup</p>
-                    </div>
-                    <div class="inc-points">5 Pts</div>
-                </div>
-
-                <div class="incentive-box">
-                    <i data-lucide="timer"></i>
-                    <div class="inc-details">
-                        <h3>On-Time Bonus</h3>
-                        <p>Arrival within time window</p>
-                    </div>
-                    <div class="inc-points">5 Pts</div>
-                </div>
-
-                <div class="incentive-box highlight-box">
-                    <i data-lucide="trending-up"></i>
-                    <div class="inc-details">
-                        <h3>Consistency Target</h3>
-                        <p>Bonus for 5 tasks per day</p>
-                    </div>
-                    <div class="inc-points">10 Pts</div>
-                </div>
-
-                <div class="incentive-box elite-box">
-                    <i data-lucide="star"></i>
-                    <div class="inc-details">
-                        <h3>Elite Performance</h3>
-                        <p>Bonus for 10 tasks per day</p>
-                    </div>
-                    <div class="inc-points">20 Pts</div>
-                </div>
-            </div>
-        </section>
-    </div>
-</main>
-
-<script>lucide.createIcons();</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <script>lucide.createIcons();</script>
 
 <footer class="mega-footer">
         
@@ -297,6 +329,8 @@
             </div>
         </div>
     </footer>
+
+        <script src="../javascript/script.js"></script>
 
 </body>
 </html>

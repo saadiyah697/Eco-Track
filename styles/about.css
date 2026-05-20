@@ -18,24 +18,56 @@ body {
     margin: 0;
 }
 
-/* --- 2. HEADER & PILLS --- */
+/* --- 2. VIDEO HERO HEADER --- */
+/* Ensure the header itself has no solid background */
 .about-header {
-    padding: 120px 20px 60px;
+    position: relative;
+    padding: 180px 20px 180px;
     text-align: center;
-    background: radial-gradient(circle at top right, rgba(0, 242, 255, 0.05), transparent);
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: transparent; 
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.90; /* Increased opacity so the video is clearer */
+}
+
+.header-overlay {
+    position: absolute;
+    inset: 0;
+    /* Changed from a solid color to a highly transparent dark wash */
+    background: linear-gradient(to bottom, rgba(34, 60, 86, 0.3), rgba(34, 60, 86, 0.6));
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
 }
 
 .about-title {
     font-family: 'Outfit', sans-serif;
     font-size: clamp(2.5rem, 5vw, 4rem);
     line-height: 1.1;
-    font-weight: 600;
+    font-weight: 800;
     margin-bottom: 20px;
 }
 
 .subtitle {
     font-family: 'Manrope', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: rgb(240, 239, 239);
     max-width: 600px;
     margin: 0 auto;
@@ -51,10 +83,113 @@ body {
     font-weight: 800;
     font-size: 0.75rem;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+    box-shadow: 0 10px 20px rgba(164, 222, 2, 0.2);
 }
 
+/* --- 6. INFINITE CAROUSEL PARTNERS SECTION --- */
+.partners-section {
+    margin-top: 100px;
+    padding-bottom: 100px;
+    text-align: center;
+    overflow: hidden; /* Prevents horizontal scrollbar */
+}
+
+.partner-tag {
+    font-family: 'Manrope', sans-serif;
+    color: var(--brand-teal);
+    letter-spacing: 3px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+.carousel-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 60px auto 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+/* Gradient fading edges for that sleek disappearing effect */
+.carousel-container::before,
+.carousel-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 150px;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.carousel-container::before {
+    left: 0;
+    background: linear-gradient(to right, #223c56 0%, transparent 100%);
+}
+
+.carousel-container::after {
+    right: 0;
+    background: linear-gradient(to left, #223c56 0%, transparent 100%);
+}
+
+.infinite-carousel {
+    display: flex;
+    gap: 40px;
+    width: max-content; /* Critical: allows it to stretch beyond the screen */
+    animation: scroll 30s linear infinite; /* Adjust seconds to change speed */
+}
+
+.infinite-carousel:hover {
+    animation-play-state: paused; /* Pauses when user hovers */
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    /* Moves it left by exactly half its width (minus half the gap) to loop perfectly */
+    100% { transform: translateX(calc(-50% - 20px)); } 
+}
+
+.partner-logo-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    width: 240px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Default state: Faded Color (No Grayscale) */
+.partner-logo-card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Uses only opacity to create a faded, washed-out look while keeping original colors */
+    filter: opacity(0.55); 
+    transition: all 0.4s ease;
+}
+
+/* Hover state: Pops into full color */
+.partner-logo-card:hover {
+    border-color: var(--brand-lime);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 30px rgba(164, 222, 2, 0.15);
+}
+
+/* Hover state: Pops into full opacity and scales up */
+.partner-logo-card:hover img {
+    filter: opacity(1);
+    transform: scale(1.1);
+}
 /* --- 3. OUR PHILOSOPHY SECTION --- */
 .narrative-grid {
     display: grid;
@@ -139,21 +274,24 @@ body {
 /* --- 5. DIGITAL BACKBONE SECTION --- */
 .backbone-section {
     display: flex; 
-    align-items: stretch; 
+    align-items: center; /* Keeps everything vertically balanced */
     gap: 60px;
     max-width: 1300px;
     margin: 80px auto;
     padding: 0 40px;
     min-height: 600px; 
 }
-.backbone-image-container {
-    flex: 1; 
+
+/* FIX: Corrected class name to match HTML and locked layout share */
+.backbone-image-wrapper {
+    flex: 1 1 50%; /* Forces the image to take exactly half the space */
+    min-width: 300px; /* Prevents it from ever getting squished into a sliver */
 }
 
 .backbone-display-img {
-    width: 550px;
-    height: 550px; 
-    object-fit:cover; 
+    width: 100%;
+    height: 600px; /* Beautiful, tall majestic height */
+    object-fit: cover; 
     object-position: center; 
     border-radius: 24px;
     border: 1px solid rgba(164, 222, 2, 0.2);
@@ -167,18 +305,12 @@ body {
     border-color: #a4de02;
 }
 
-/* RIGHT SIDE: THE TEXT */
-.backbone-content-container {
-    flex: 1; 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; 
-}
+/* FIX: Corrected class name and layout share */
 .backbone-info-column {
+    flex: 1 1 50%; /* Forces the text to stay in its own half */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Items stacked at top */
-    height: 100%;
+    justify-content: center; 
 }
 
 .backbone-header {
@@ -196,7 +328,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    margin-top: 40px; /* Adjust this to bring items up or down */
+    margin-top: 40px;
 }
 
 .backbone-item {
@@ -228,66 +360,6 @@ body {
     margin: 0;
 }
 
-/* --- 6. PARTNERS SECTION --- */
-.partners-section {
-    margin-top: 100px;
-    padding-bottom: 100px;
-    text-align: center;
-}
-
-.partner-tag {
-    font-family: 'Manrope', sans-serif;
-    color: var(--brand-teal);
-    letter-spacing: 2px;
-    font-weight: 700;
-    font-size: 2.8rem;
-    text-transform: uppercase;
-}
-
-
-/* --- Partner Grid Container --- */
-.partner-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-    gap: 30px;
-    max-width: 1400px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
-/* --- Card Size --- */
-.partner-logo-card {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    padding: 10px; 
-    border-radius: 20px;
-    height: 140px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    filter: none; 
-    transition: all 0.4s ease;
-    overflow: hidden;
-}
-
-
-.partner-logo-card img {
-    max-width: 100%;    
-    max-height: 120px;
-    width: auto;
-    height: 140px;
-    object-fit: contain; 
-    display: block;
-}
-
-
-.partner-logo-card:hover {
-    border-color: var(--brand-lime);
-    transform: scale(1.05); 
-    background: rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
 /* --- 7. REVEAL ANIMATIONS  --- */
 .reveal-text {
     opacity: 0;
@@ -300,25 +372,101 @@ body {
     transform: translate(0) scale(1);
 }
 
-/* --- 8. RESPONSIVE QUERIES --- */
+/* =========================================
+   8. MASTER RESPONSIVE PATCH
+========================================= */
+
+/* Fix image rigidity so they scale down perfectly on all screens */
+.impact-img {
+    width: 100%;
+    max-width: 750px; /* Allows it to stretch much wider */
+    height: 600px; /* Taller height to balance the text block */
+    object-fit: cover; /* Keeps the image looking perfect without stretching */
+    margin: 0 auto;
+}
+
+.backbone-display-img {
+    width: 100%;
+    max-width: 650px;
+    height: 600px;
+    object-fit: cover;
+    margin: 0 auto;
+}
+
+/* Tablet & Small Desktop (Max-width: 1024px) */
 @media (max-width: 1024px) {
-    .narrative-grid, .backbone-section {
-        gap: 40px;
-        padding: 0 20px;
+    /* 1. Force Philosophy section to stack neatly */
+    .narrative-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 50px;
+        padding: 0 5%;
+    }
+
+    /* 2. Ensure Backbone section wrapper expands fully */
+    .backbone-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 50px;
+        padding: 0 5%;
+    }
+
+    /* Reset flex wrappers so they don't collapse on tablets */
+    .backbone-image-wrapper, 
+    .backbone-info-column {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    /* 3. Transform images into wide, premium landscape banners */
+    .impact-img, 
+    .backbone-display-img {
+        max-width: 100%; /* Expand to fill the container width */
+        height: 450px; /* Switch to a wide landscape proportion */
+        object-fit: cover;
+        border-radius: 24px;
+        margin: 0 auto;
+    }
+
+    .backbone-item {
+        text-align: left; /* Keep text inside the stack cards readable */
     }
 }
 
+/* Mobile Screens (Max-width: 768px) */
 @media (max-width: 768px) {
-    .narrative-grid, .backbone-section {
+    .about-header {
+        padding: 140px 5% 60px;
+        min-height: 40vh;
+    }
+
+    /* Stack the Philosophy and Mission/Vision cards */
+    .narrative-grid {
         grid-template-columns: 1fr;
         text-align: center;
         margin: 60px auto;
     }
-    
-    .impact-img, .backbone-display-img {
-        height: 400px;
+
+    .glass-vision-card {
+        padding: 30px 20px;
     }
 
-    .backbone-info-column { align-items: center; }
+    /* Shrink the images further for phones */
+    .impact-img, .backbone-display-img {
+        max-height: 350px;
+    }
+
+    /* Scale down titles to prevent screen breaking */
+    .bridge-title, .backbone-header {
+        font-size: 2.2rem !important;
+    }
+
+    /* Adjust the carousel logos for mobile */
+    .partner-logo-card {
+        width: 180px;
+        height: 90px;
+        padding: 15px;
+    }
 }
    

@@ -1,117 +1,347 @@
-/* Variables for Eco-Track Color Palette */
-:root {
-    --dark-bg: #223c56;
-    --light-bg: #e9eff2;
-    --leaf-green: #2ecc71;
-    --text-dark: #2c3e50;
-    --text-white: #ffffff;
-}
+/* =========================================
+   FAQ PAGE REDESIGN & STYLING
+========================================= */
 
-.faq-section {
+.faq-main {
+    background-color: var(--primary-bg);
+    min-height: 100vh;
     padding-bottom: 80px;
-    background-color: #fdfdfd;
+    font-family: 'Manrope', sans-serif;
 }
 
-/* Header Animation */
-.faq-header {
-    text-align: center;
-    padding: 120px 20px 40px;
-    animation: faqFadeInDown 0.8s ease-out;
-}
-
-.faq-header h1 {
-    font-size: 2.5rem;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-}
-
-.faq-header .underline {
-    width: 200px;
-    height: 4px;
-    background: var(--leaf-green);
-    margin: 0 auto;
-    border-radius: 2px;
-    animation: faqExpand 1s ease-in-out forwards;
-}
-
-/* Grid Layout */
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 20px;
-    padding: 0 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Card Styling & Entrance Animation */
-.faq-card {
-    border-radius: 12px;
-    padding: 24px;
-    min-height: 180px;
+/* --- Updated FAQ Hero Area --- */
+.faq-hero {
     position: relative;
+    background-color: #223c56; /* Added back the dark blue background */
+    color: #ffffff;           /* Ensures text is white */
+    padding: 120px 5% 80px; /* Provides space for the title */
+    text-align: center;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-    opacity: 0;
-    animation: faqFadeInUp 0.6s ease forwards;
-    animation-delay: calc(var(--i) * 0.1s); /* Staggered effect */
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    align-items: center;
+    justify-content: center;
 }
 
-.card-dark { background-color: var(--dark-bg); color: var(--text-white); }
-.card-light { background-color: var(--light-bg); color: var(--text-dark); }
-
-/* Interactive Hover States */
-.faq-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    z-index: 5;
+.faq-main-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--text-white); /* Forced to white for visibility */
+    margin-bottom: 20px;
+    z-index: 2; /* Ensures it sits above hero elements */
 }
 
-.leaf-icon {
+/* Ensure the search wrapper doesn't push the title off-screen */
+.faq-search-wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    z-index: 2;
+}
+
+/* Adjust responsiveness to keep title visible */
+@media (max-width: 768px) {
+    .faq-hero {
+        padding: 100px 5% 50px;
+    }
+    
+    .faq-main-title {
+        font-size: 1.8rem; /* Smaller font on mobile to prevent wrapping issues */
+        margin-bottom: 15px;
+    }
+}
+
+.hero-glow {
     position: absolute;
-    top: 15px;
-    right: 15px;
-    color: var(--leaf-green);
-    font-size: 1.3rem;
-    transition: transform 0.3s ease;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.2) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
 }
 
-.faq-card:hover .leaf-icon {
-    transform: scale(1.3) rotate(15deg);
-}
-
-.question-text {
-    font-weight: 700;
-    font-size: 1.05rem;
+.faq-hero h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 15px;
-    padding-right: 25px;
+    position: relative;
+    z-index: 1;
 }
 
-.answer-text {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    opacity: 0.85;
+.faq-hero p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
 }
 
-/* Animation Keyframes */
-@keyframes faqFadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
+.faq-search-wrapper {
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 1;
 }
 
-@keyframes faqFadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+.faq-search-input {
+    width: 100%;
+    padding: 20px 25px 20px 60px;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    outline: none;
 }
 
-@keyframes faqExpand {
-    from { width: 0; }
-    to { width: 350px; }
+.faq-search-input:focus {
+    border-color: var(--teal-action);
+    box-shadow: 0 15px 35px rgba(26, 188, 156, 0.15);
 }
 
-/* Responsiveness */
-@media (max-width: 1200px) { .faq-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (max-width: 900px) { .faq-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .faq-grid { grid-template-columns: 1fr; } }
+.search-icon {
+    position: absolute;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted-gray);
+    font-size: 1.2rem;
+}
+
+/* --- FAQ Accordion Layout (Upgraded Premium Cards) --- */
+.faq-accordion-container {
+    max-width: 900px;
+    margin: 40px auto 0; /* Pulls it up slightly over the dark hero */
+    position: relative;
+    z-index: 5;
+    padding: 0 5%;
+}
+
+.accordion-category {
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    margin-bottom: 50px;
+}
+
+.category-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.8rem;
+    color: var(--deep-navy);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: none;
+    padding-top: 20px;
+}
+
+/* Premium dynamic line next to category title */
+.category-title::after {
+    content: '';
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--teal-action), transparent);
+    opacity: 0.4;
+}
+
+/* Individual Floating Cards */
+.accordion-item {
+    background: var(--text-white);
+    border-radius: 16px;
+    margin-bottom: 16px;
+    padding: 0 30px;
+    border: 1px solid rgba(44, 62, 80, 0.06);
+    box-shadow: 0 5px 20px rgba(34, 60, 86, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.accordion-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(26, 188, 156, 0.1);
+    border-color: rgba(26, 188, 156, 0.3);
+}
+
+/* Active State for the whole card */
+.accordion-item.active-item {
+    border-color: var(--teal-action);
+    box-shadow: 0 15px 40px rgba(26, 188, 156, 0.15);
+    transform: translateY(-3px) scale(1.02);
+}
+
+/* The Question Button */
+.accordion-question {
+    width: 100%;
+    text-align: left;
+    background: transparent;
+    border: none;
+    padding: 25px 0;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--deep-navy);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease, padding 0.3s ease;
+}
+
+.accordion-item.active-item .accordion-question {
+    color: var(--teal-action);
+    padding-bottom: 15px; /* Tighter spacing when open */
+}
+
+/* -----------------------------------------
+   PURE CSS ANIMATED TOGGLE ICON
+   (Never breaks, no external fonts needed)
+----------------------------------------- */
+.toggle-icon {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+    content: '';
+    position: absolute;
+    background-color: var(--deep-navy);
+    border-radius: 2px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* The Horizontal Line (Minus) */
+.toggle-icon::before { width: 14px; height: 2px; }
+
+/* The Vertical Line (Plus) */
+.toggle-icon::after { width: 2px; height: 14px; }
+
+/* Hover & Active icon colors */
+.accordion-item:hover .toggle-icon { background: rgba(26, 188, 156, 0.1); }
+.accordion-item.active-item .toggle-icon { background: var(--teal-action); }
+
+.accordion-item.active-item .toggle-icon::before,
+.accordion-item.active-item .toggle-icon::after { background-color: var(--text-white); }
+
+/* Transform to Minus when active */
+.accordion-item.active-item .toggle-icon::after { transform: rotate(90deg) scale(0); }
+.accordion-item.active-item .toggle-icon::before { transform: rotate(180deg); }
+
+/* ----------------------------------------- */
+
+/* The Answer Box */
+.accordion-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.accordion-answer p {
+    padding-bottom: 25px;
+    color: var(--muted-gray);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    border-top: 1px dashed rgba(44, 62, 80, 0.1); /* Nice divider line */
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+/* --- Support CTA --- */
+.support-cta {
+    max-width: 900px;
+    margin: 60px auto 0;
+    padding: 0 5%;
+}
+
+.support-card {
+    background: linear-gradient(135deg, var(--deep-navy), #162a3f);
+    padding: 50px;
+    border-radius: 24px;
+    text-align: center;
+    color: var(--text-white);
+    box-shadow: 0 20px 50px rgba(34, 60, 86, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.support-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.support-card h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.support-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.btn-support {
+    display: inline-block;
+    background: var(--green-highlight);
+    color: var(--deep-navy);
+    padding: 16px 35px;
+    border-radius: 50px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-support:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(164, 222, 2, 0.3);
+    background: #ffffff;
+}
+
+
+
+/* =========================================
+   RESPONSIVENESS
+========================================= */
+@media (max-width: 768px) {
+    .faq-hero {
+        padding: 140px 5% 60px;
+    }
+
+    .accordion-category {
+        padding: 30px 20px;
+    }
+
+    .accordion-question {
+        font-size: 1.05rem;
+        padding: 20px 0;
+    }
+    
+    .toggle-icon {
+        flex-shrink: 0;
+        margin-left: 15px;
+    }
+
+    .support-card {
+        padding: 40px 20px;
+    }
+
+    .support-card h2 {
+        font-size: 1.8rem;
+    }
+}

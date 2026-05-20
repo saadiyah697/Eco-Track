@@ -3,33 +3,186 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Track</title>
+    <title>Smart Bins | Eco-Track</title>
     <link rel="icon" type="image/png" href="../Images/Eco-track-white-logo.png">
-    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/smart-bins.css">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&family=Outfit:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
 <nav class="navbar">
         <div class="nav-logo">
-            <img src="Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+            <img src="../Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
             Eco-Track
         </div>
-        <div class="glass-capsule">
-            <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="../pages/about.html">About</a></li>
-    <li><a href="../pages/community.html">Community</a></li>
-    <li><a href="smart-bins.html">Smart Bins</a></li>
-    <li><a href="../pages/rewards.html">Dual Rewards</a></li>
-    <li><a href="../pages/faq.html">FAQ</a></li>
-</ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-<div class="nav-actions">
-    <a href="../pages/login.html" class="user-portal-link">User Portal</a>
-    <a href="../pages/driver-login.html" class="btn-login-accent">Driver Hub</a>
-</div>
+
+        <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+            <div class="glass-capsule">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="smart-bins.html" class="active">Smart Bins</a></li>
+                    <li><a href="rewards.html">Dual Rewards</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-portal-link">User Portal</a>
+                <a href="driver-login.html" class="btn-login-accent">Driver Hub</a>
+            </div>
+        </div>
     </nav>
+
+    <section class="smart-hero">
+        <div class="hero-bg-glow"></div>
+        <div class="smart-hero-content animate-fade-up">
+            <span class="hardware-tag">NEXT-GEN HARDWARE</span>
+            <h1 class="smart-title">Meet the <span class="lime-text">Eco-Node</span>.</h1>
+            <p class="smart-subtitle">It doesn't just collect waste. It analyzes, weighs, and synchronizes your environmental impact directly to your dashboard in real-time.</p>
+            <a href="#bento-specs" class="btn-explore-tech">Explore the Tech <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <section class="bento-section" id="bento-specs">
+        <div class="bento-container">
+            <div class="bento-header animate-fade-up">
+                <h2>Engineered for the Circular Economy</h2>
+            </div>
+
+            <div class="bento-grid">
+                <div class="bento-card span-2 highlight-card animate-fade-up delay-1">
+                    <div class="card-glow"></div>
+                    <div class="bento-content">
+                        <i class="fas fa-balance-scale-right bento-icon"></i>
+                        <h3>Precision IoT Weighing</h3>
+                        <p>Built-in hyper-sensitive load cells detect deposits down to the gram. The moment you drop an item, the Eco-Node calculates the exact CO2 offset and updates your digital profile.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card animate-fade-up delay-2">
+                    <div class="bento-content">
+                        <i class="fas fa-solar-panel bento-icon"></i>
+                        <h3>100% Solar Powered</h3>
+                        <p>Equipped with a micro-photovoltaic lid, the bin generates its own power, ensuring 24/7 connectivity without ever needing a plug.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card animate-fade-up delay-1">
+                    <div class="bento-content">
+                        <i class="fas fa-wind bento-icon"></i>
+                        <h3>Odor Neutralization</h3>
+                        <p>Activated carbon filters and automated UV-C light bursts keep your environment sanitary and completely odor-free.</p>
+                    </div>
+                </div>
+
+                <div class="bento-card span-2 dark-card animate-fade-up delay-2">
+                    <div class="bento-content">
+                        <i class="fas fa-wifi bento-icon lime-text"></i>
+                        <h3>Instant Dashboard Sync</h3>
+                        <p>Using low-latency 5G and secure Bluetooth protocols, the bin talks directly to your Eco-Track app. Watch your Green Points balance increase instantly as the lid closes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sync-section">
+        <div class="sync-container">
+            <div class="sync-content animate-fade-up">
+                <h2 class="sync-title">Your waste, <br><span class="teal-text">digitized.</span></h2>
+                <p class="sync-desc">The Eco-Node doesn't just hold recyclables; it tokenizes them. Using our proprietary handshake protocol, the bin connects to your Eco-Track app the moment you approach.</p>
+                
+                <ul class="sync-features">
+                    <li>
+                        <div class="sync-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="sync-text">
+                            <strong>Proximity Unlock</strong>
+                            <span>Secure Bluetooth 5.2 opens the lid automatically as you walk up. No touching required.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sync-icon"><i class="fas fa-coins"></i></div>
+                        <div class="sync-text">
+                            <strong>Instant Tokenization</strong>
+                            <span>Deposits are weighed, categorized by AI, and converted into Green Points before you even walk away.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="sync-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="sync-text">
+                            <strong>Live Impact Tracking</strong>
+                            <span>Watch your personal or corporate CO2 offset metrics update in real-time on your dashboard.</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sync-visual animate-fade-up delay-1">
+                <div class="floating-ui-card top-card">
+                    <span class="ui-label">Deposit Detected</span>
+                    <span class="ui-value">+ 45 Points</span>
+                </div>
+                <div class="floating-ui-card bottom-card">
+                    <span class="ui-label">Carbon Offset</span>
+                    <span class="ui-value lime-text">1.2 kg CO₂</span>
+                </div>
+                <div class="digital-orb"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="tech-specs-section">
+        <div class="specs-container animate-fade-up">
+            <div class="specs-header">
+                <h2>Under the Hood</h2>
+                <p>Industrial-grade hardware designed for everyday environments.</p>
+            </div>
+            
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <span class="spec-value">50L & 120L</span>
+                    <span class="spec-label">Capacity Variants</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value">5G / LTE-M</span>
+                    <span class="spec-label">Cellular IoT Connectivity</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value">10+ Years</span>
+                    <span class="spec-label">Solar Panel Lifespan</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value">IP67</span>
+                    <span class="spec-label">Weather & Dust Resistance</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value">0.1g</span>
+                    <span class="spec-label">Load Cell Precision</span>
+                </div>
+                <div class="spec-item">
+                    <span class="spec-value">100%</span>
+                    <span class="spec-label">Recycled Aluminum Chassis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="install-cta-section">
+        <div class="install-container animate-fade-up">
+            <h2>Upgrade Your Space.</h2>
+            <p>Available for households, residential towers, and commercial office spaces in Sharjah and Dubai.</p>
+            <a href="login.html" class="btn-request-bin">Request Installation</a>
+        </div>
+    </section>
 
    
 
@@ -132,6 +285,7 @@
     </footer>
 
 
-    <script src="javascript/script.js"></script>
+    <script src="../javascript/script.js"></script>
+
 </body>
 </html>

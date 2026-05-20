@@ -118,7 +118,7 @@ const wasteDatabase = {
     "spray bottle": { category: "Cans & Tins", status: "Hazardous - Special Disposal", symbol: "⚠️", color: "#f11800" },
 
     // --- E-WASTE ---
-    "phone": { category: "E-Waste", status: "Special Pickup Required", symbol: "📱", color: "#054b92" },
+    "mobile phone": { category: "E-Waste", status: "Special Pickup Required", symbol: "📱", color: "#054b92" },
     "laptop": { category: "E-Waste", status: "Special Pickup Required", symbol: "💻", color: "#054b92" },
     "battery": { category: "E-Waste", status: "Hazardous - Special Disposal", symbol: "🔋", color: "#ff0000" },
     "tablet": { category: "E-Waste", status: "Special Pickup Required", symbol: "🔌", color: "#054b92" },

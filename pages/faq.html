@@ -13,122 +13,171 @@
 
 <nav class="navbar">
         <div class="nav-logo">
-            <img src="Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+            <img src="../Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
             Eco-Track
         </div>
-        <div class="glass-capsule">
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../pages/about.html">About</a></li>
-            <li><a href="../pages/community.html">Community</a></li>
-            <li><a href="../pages/smart-bins.html">Smart Bins</a></li>
-            <li><a href="../pages/rewards.html">Dual Rewards</a></li>
-            <li><a href="faq.html">FAQ</a></li>
-        </ul>
-            </ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-<div class="nav-actions">
-    <a href="../pages/login.html" class="user-portal-link">User Portal</a>
-    <a href="../pages/driver-login.html" class="btn-login-accent">Driver Hub</a>
-</div>
+
+        <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+            <div class="glass-capsule">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="smart-bins.html">Smart Bins</a></li>
+                    <li><a href="rewards.html">Dual Rewards</a></li>
+                    <li><a href="faq.html" class="active">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-portal-link">User Portal</a>
+                <a href="driver-login.html" class="btn-login-accent">Driver Hub</a>
+            </div>
+        </div>
     </nav>
 
 <!-- FAQ Section Start -->
-<section class="faq-section">
-    <div class="faq-header">
-        <h1>Frequently Asked Questions</h1>
-        <div class="underline"></div>
-    </div>
+<main class="faq-main">
+        <section class="faq-hero animate-fade-up">
+            <div class="hero-glow"></div>
+            <h1>How can we help?</h1>
+            <p>Search our knowledge base or browse the categories below.</p>
+            <div class="faq-search-wrapper">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" placeholder="Ask a question..." class="faq-search-input">
+            </div>
+        </section>
 
-    <div class="faq-grid">
-        <!-- Card 1 -->  
-        <div class="faq-card card-dark" style="--i:1">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">How do I earn Green Points?</div>
-            <div class="answer-text">Green Points are added after each verified pickup, based on the material type and the weight recorded by the Fleet Specialist.</div>
-        </div>
+        <section class="faq-accordion-container animate-fade-up delay-1">
+            <div class="accordion-category">
+                <h3 class="category-title">General & Logistics</h3>
+                
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        How do I request a pickup?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>Schedule a pickup directly through the Eco‑Track website. Choose your preferred time and place, and our system assigns the nearest driver to your location automatically.</p>
+                    </div>
+                </div>
 
-        <!-- Card 2 -->
-        <div class="faq-card card-light" style="--i:2">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">How do I request a pickup?</div>
-            <div class="answer-text">Schedule a pickup directly through the Eco‑Track website. Choose your preferred time and place, our system assigns the nearest driver to your location.</div>
-        </div>
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        Is Eco‑Track available in my area?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>Yes. Eco‑Track has expanded its services across the entire UAE, making smart doorstep pickups available nationwide.</p>
+                    </div>
+                </div>
 
-        <!-- Card 3 -->
-        <div class="faq-card card-dark" style="--i:3">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">How do I redeem my vouchers?</div>
-            <div class="answer-text">Visit your Rewards Dashboard and convert your Green Points into available vouchers instantly.</div>
-        </div>
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        Is there a pickup limit?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>No, there’s no limit. You can schedule as many pickups as you need. Eco‑Track accepts unlimited recyclable waste as long as it is properly sorted.</p>
+                    </div>
+                </div>
 
-        <!-- Card 4 -->
-        <div class="faq-card card-light" style="--i:4">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">How is the weight of recyclables verified?</div>
-            <div class="answer-text">The driver weighs your bag on a smart scale, logs the number, and it instantly appears in your profile.</div>
-        </div>
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        Can I cancel or reschedule my pickup after scheduling?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>Yes. You can cancel or reschedule your pickup anytime up to 10 hours before the scheduled collection time via your User Dashboard.</p>
+                    </div>
+                </div>
+            </div>
 
-        <!-- Card 5 -->
-        <div class="faq-card card-dark" style="--i:5">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">Is there a pickup limit?</div>
-            <div class="answer-text"> No, there’s no limit. You can schedule as many pickups as you need. Eco‑Track accepts unlimited recyclable waste.</div>
-        </div>
+            <div class="accordion-category mt-50">
+                <h3 class="category-title">Rewards & Verification</h3>
+                
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        How do I earn Green Points?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>Green Points are added after each verified pickup, based on the material type and the exact weight recorded by the Fleet Specialist's smart scale.</p>
+                    </div>
+                </div>
 
-        <!-- Card 6 -->
-        <div class="faq-card card-dark" style="--i:6">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">Can I view a record of my past recycled waste?</div>
-            <div class="answer-text">Yes, complete recycling history is available in your dashboard, where you can view all past pickups along with their verified weights and points earned.</div>
-        </div>
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        How is the weight of recyclables verified?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>The driver weighs your bag on a Bluetooth-enabled smart scale. It logs the exact number and instantly syncs it to your profile for total transparency.</p>
+                    </div>
+                </div>
 
-        <!-- Card 7 -->
-        <div class="faq-card card-light" style="--i:7">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">Is Eco‑Track available in my area?</div>
-            <div class="answer-text">Yes. Eco‑Track has expanded its services across the entire UAE, making pickups available nationwide.</div>
-        </div>
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        How do I redeem my vouchers?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>Visit your Rewards Dashboard, browse the Ecosystem Catalog, and convert your Green Points into available vouchers instantly.</p>
+                    </div>
+                </div>
 
-        <!-- Card 8 -->
-        <div class="faq-card card-dark" style="--i:8">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">Can I cancel or reschedule my pickup after scheduling?</div>
-            <div class="answer-text">Yes. You can cancel orreschedule your pickup anytime up to 10 hours before the scheduled collection time.</div>
-        </div>
+                <div class="accordion-item">
+                    <button class="accordion-question">
+                        Do my Green Points expire?
+                        <span class="toggle-icon"><i class="fas fa-plus"></i></span>
+                    </button>
+                    <div class="accordion-answer">
+                        <p>No. Your Green Points do not expire. You can bank them and use them anytime without worrying about a time limit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <!-- Card 9 -->
-        <div class="faq-card card-light" style="--i:9">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">Do my Green Points expire?</div>
-            <div class="answer-text">No. Your Green Points do not expire, you can use them anytime without a time limit</div>
-        </div>
+        <section class="support-cta animate-fade-up delay-2">
+            <div class="support-card">
+                <div class="support-icon">💬</div>
+                <h2>Still have questions?</h2>
+                <p>Can't find the answer you're looking for? Our support team is ready to help you out.</p>
+                <a href="../index.html#contact" class="btn-support">Contact Support</a>
+            </div>
+        </section>
+    </main>
 
-        <!-- Card 10 -->
-        <div class="faq-card card-dark" style="--i:10">
-            <span class="leaf-icon">🍃</span>
-            <div class="question-text">What if my waste is mixed?</div>
-            <div class="answer-text">Mixed waste is not accepted. Please sort your recyclables before scheduling a pickup to ensure a smooth collection process.</div>
-        </div>
-    </div>
-</section>
+<script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const accordionBtns = document.querySelectorAll(".accordion-question");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            accordionBtns.forEach(btn => {
+                btn.addEventListener("click", function() {
+                    const item = this.parentElement; // Targets the whole card
+                    const answer = this.nextElementSibling;
+                    const isActive = item.classList.contains("active-item");
+                    
+                    // Close all other accordions
+                    document.querySelectorAll(".accordion-item").forEach(otherItem => {
+                        otherItem.classList.remove("active-item");
+                        otherItem.querySelector(".accordion-answer").style.maxHeight = null;
+                    });
+                    
+                    // Open this one if it wasn't already open
+                    if (!isActive) {
+                        item.classList.add("active-item");
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
 
 
     <footer class="mega-footer">
