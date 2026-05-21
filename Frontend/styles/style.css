@@ -13,6 +13,72 @@
     --text-white: #ffffff;
 }
 
+/* =========================================
+   PREMIUM GLOBAL LOADER
+========================================= */
+.global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #223c56; /* Deep Navy background for a cinematic reveal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Stays above absolutely everything */
+    /* Extremely smooth fade out */
+    transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                visibility 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* The class JS will add to hide the loader */
+.global-loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-spinner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The outer rotating ring */
+.loader-ring {
+    width: 70px;
+    height: 70px;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    /* Eco-Track Brand Colors */
+    border-top-color: #1abc9c; 
+    border-bottom-color: #a4de02; 
+    /* The cubic-bezier makes the spin feel engineered and elastic, not robotic */
+    animation: loaderSpin 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+}
+
+/* The inner glowing core */
+.loader-core {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(26, 188, 156, 0.8);
+    animation: corePulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes loaderSpin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes corePulse {
+    0% { transform: scale(0.8); opacity: 0.5; }
+    100% { transform: scale(1.2); opacity: 1; }
+}
+
 * {
     margin: 0;
     padding: 0;

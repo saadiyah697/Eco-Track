@@ -17,6 +17,17 @@
             });
         }, 3500);
 
+        /* =========================================
+   GLOBAL LOADER FADE-OUT LOGIC
+========================================= */
+window.addEventListener('load', function() {
+    const loader = document.getElementById('global-loader');
+    if (loader) {
+        // Adds the 'hidden' class to trigger the smooth CSS fade transition
+        loader.classList.add('hidden');
+    }
+});
+
 
         // --- 2. LIVE COUNTDOWN TIMER ---
         // Initial time: 2 hours, 40 minutes
