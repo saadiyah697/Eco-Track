@@ -93,109 +93,124 @@
     box-shadow: 0 10px 25px rgba(26, 188, 156, 0.3);
 }
 
-/* --- BENTO BOX FEATURES GRID --- */
-.bento-section {
-    background-color: var(--primary-bg);
-    padding: 100px 5%;
+/* =========================================
+   1. PREMIUM HARDWARE GRID (Dark Theme)
+========================================= */
+.hardware-premium-section {
+    background-color: var(--deep-navy);
+    padding: 100px 5% 120px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.bento-container {
+.hardware-container {
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.bento-header {
+.hardware-header {
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 70px;
 }
 
-.bento-header h2 {
+.sub-badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(26, 188, 156, 0.1);
+    color: var(--teal-action);
+    border: 1px solid rgba(26, 188, 156, 0.3);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hardware-header h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 2.8rem;
-    color: var(--deep-navy);
-}
-
-/* The Grid System */
-.bento-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(280px, auto);
-    gap: 25px;
-}
-
-/* Individual Bento Cards */
-.bento-card {
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.bento-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 25px 50px rgba(26, 188, 156, 0.15);
-    border-color: rgba(26, 188, 156, 0.3);
-}
-
-.span-2 {
-    grid-column: span 2;
-}
-
-.bento-icon {
-    font-size: 2.5rem;
-    color: var(--teal-action);
-    margin-bottom: 25px;
-    display: inline-block;
-}
-
-.bento-content h3 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.6rem;
-    color: var(--deep-navy);
+    color: var(--text-white);
     margin-bottom: 15px;
 }
 
-.bento-content p {
-    font-family: 'Manrope', sans-serif;
-    color: var(--muted-gray);
-    font-size: 1rem;
-    line-height: 1.6;
-}
-
-/* Special Card Styling */
-.dark-card {
-    background: var(--deep-navy);
-    color: var(--text-white);
-}
-
-.dark-card .bento-content h3 {
-    color: var(--text-white);
-}
-
-.dark-card .bento-content p {
+.hardware-header p {
     color: rgba(255, 255, 255, 0.7);
+    font-size: 1.15rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.highlight-card {
-    background: linear-gradient(135deg, #f8fbfd 0%, #e0f2f1 100%);
+.hardware-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
 
-.card-glow {
+.hardware-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 50px 40px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1;
+}
+
+.card-glow-bg {
     position: absolute;
-    top: -50px;
-    right: -50px;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(164, 222, 2, 0.3) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
+    top: 0; right: 0;
+    width: 250px; height: 250px;
+    background: radial-gradient(circle, rgba(164, 222, 2, 0.15) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    transform: translate(30%, -30%);
+    z-index: -1;
+}
+
+.hardware-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(164, 222, 2, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(164, 222, 2, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.hardware-card:hover .card-glow-bg {
+    opacity: 1;
+}
+
+.icon-ring {
+    width: 60px; height: 60px;
+    border-radius: 16px;
+    background: rgba(26, 188, 156, 0.1);
+    border: 1px solid rgba(26, 188, 156, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: var(--teal-action);
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.hardware-card:hover .icon-ring {
+    background: var(--teal-action);
+    color: var(--deep-navy);
+    box-shadow: 0 10px 20px rgba(26, 188, 156, 0.3);
+    transform: scale(1.1);
+}
+
+.hardware-card h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-white);
+    margin-bottom: 15px;
+}
+
+.hardware-card p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    line-height: 1.7;
 }
 
 /* --- INSTALLATION CTA --- */
@@ -241,129 +256,121 @@
 }
 
 /* =========================================
-   NEW CONTENT: SYNC & SPECS SECTIONS
+   2. CONNECTED PROCESS FLOW (Light Theme)
 ========================================= */
-
-/* --- SEAMLESS SYNC SECTION --- */
-.sync-section {
+.digitized-flow-section {
     background: #ffffff;
     padding: 120px 5%;
     overflow: hidden;
 }
 
-.sync-container {
+.flow-container {
     max-width: 1200px;
     margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 80px;
 }
 
-.sync-content {
-    flex: 1;
+.flow-header {
+    text-align: center;
+    margin-bottom: 80px;
 }
 
-.sync-title {
+.flow-header h2 {
     font-family: 'Outfit', sans-serif;
     font-size: 3.5rem;
     color: var(--deep-navy);
     line-height: 1.1;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
 }
 
 .teal-text { color: var(--teal-action); }
 
-.sync-desc {
+.flow-header p {
     font-size: 1.15rem;
     color: var(--muted-gray);
-    margin-bottom: 40px;
+}
+
+.flow-track-wrapper {
+    position: relative;
+    padding-top: 30px;
+}
+
+/* The Animated Connecting Line */
+.animated-track-line {
+    position: absolute;
+    top: 55px; /* Aligns with the middle of the nodes */
+    left: 10%; right: 10%;
+    height: 4px;
+    background: #f1f5f9;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.glowing-progress {
+    position: absolute;
+    top: 0; left: 0; height: 100%;
+    background: linear-gradient(90deg, var(--teal-action), var(--green-highlight));
+    border-radius: 10px;
+    width: 0%;
+    animation: flowProgress 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate;
+    box-shadow: 0 0 15px rgba(26, 188, 156, 0.5);
+}
+
+@keyframes flowProgress {
+    0% { width: 0%; }
+    100% { width: 100%; }
+}
+
+.flow-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.flow-step {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(34, 60, 86, 0.05);
+    transition: transform 0.4s ease;
+}
+
+.flow-step:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 45px rgba(26, 188, 156, 0.1);
+}
+
+.step-node {
+    width: 50px; height: 50px;
+    background: var(--deep-navy);
+    color: var(--green-highlight);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: -65px auto 25px; /* Pulls it up onto the track line */
+    border: 6px solid #ffffff; /* Creates a cutout effect against the line */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.flow-step h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    color: var(--deep-navy);
+    margin-bottom: 15px;
+}
+
+.flow-step p {
+    color: var(--muted-gray);
+    font-size: 0.95rem;
     line-height: 1.6;
 }
-
-.sync-features {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.sync-features li {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-}
-
-.sync-icon {
-    width: 50px;
-    height: 50px;
-    background: rgba(26, 188, 156, 0.1);
-    color: var(--teal-action);
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.3rem;
-    flex-shrink: 0;
-}
-
-.sync-text strong {
-    display: block;
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.2rem;
-    color: var(--deep-navy);
-    margin-bottom: 5px;
-}
-
-.sync-text span {
-    font-size: 0.95rem;
-    color: var(--muted-gray);
-    line-height: 1.5;
-}
-
-/* Sync Visuals (Abstract UI) */
-.sync-visual {
-    flex: 1;
-    position: relative;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.digital-orb {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, var(--teal-action) 0%, transparent 70%);
-    border-radius: 50%;
-    opacity: 0.15;
-    animation: breatheOrb 4s ease-in-out infinite alternate;
-}
-
-@keyframes breatheOrb {
-    0% { transform: scale(0.8); opacity: 0.1; }
-    100% { transform: scale(1.1); opacity: 0.25; }
-}
-
-.floating-ui-card {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0,0,0,0.05);
-    padding: 20px 30px;
-    border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-    display: flex;
-    flex-direction: column;
-    z-index: 2;
-    animation: floatWidget 5s ease-in-out infinite;
-}
-
-.top-card { top: 20%; left: 10%; animation-delay: 0s; }
-.bottom-card { bottom: 20%; right: 10%; animation-delay: 2s; border-left: 4px solid var(--green-highlight); }
-
-.ui-label { font-size: 0.85rem; color: var(--muted-gray); font-weight: 700; text-transform: uppercase; margin-bottom: 5px; }
-.ui-value { font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--deep-navy); }
-
 
 /* --- TECH SPECS SECTION --- */
 .tech-specs-section {
@@ -434,17 +441,26 @@
 
 /* --- RESPONSIVENESS --- */
 @media (max-width: 1024px) {
-    .bento-grid, .specs-grid { grid-template-columns: repeat(2, 1fr); }
-    .span-2 { grid-column: span 1; }
-    .sync-container { flex-direction: column; gap: 40px; }
-    .sync-visual { width: 100%; height: 350px; }
+    .hardware-grid, .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-steps-grid { gap: 20px; }
 }
 
 @media (max-width: 768px) {
-    .bento-grid, .specs-grid { grid-template-columns: 1fr; }
+    .hardware-grid, .specs-grid, .flow-steps-grid { grid-template-columns: 1fr; }
+    
     .smart-title { font-size: 2.5rem; }
-    .bento-header h2, .install-container h2, .sync-title, .specs-header h2 { font-size: 2.2rem; }
-    .floating-ui-card { transform: scale(0.8); }
-    .top-card { left: 0; }
-    .bottom-card { right: 0; }
+    .hardware-header h2, .install-container h2, .flow-header h2, .specs-header h2 { font-size: 2.2rem; }
+    
+    /* Rotate the track line for vertical mobile stacking */
+    .animated-track-line {
+        top: 0; bottom: 0; left: 50%; right: auto;
+        width: 4px; height: 100%;
+        transform: translateX(-50%);
+    }
+    .glowing-progress { width: 100%; height: 0%; animation: flowProgressVertical 3s cubic-bezier(0.4, 0, 0.2, 1) infinite alternate; }
+    
+    @keyframes flowProgressVertical { 0% { height: 0%; } 100% { height: 100%; } }
+    
+    .step-node { margin: 0 auto 20px; }
+    .flow-step { margin-bottom: 30px; }
 }
