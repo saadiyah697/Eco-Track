@@ -3,130 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco-Track</title>
+    <title>User Portal | Eco-Track</title>
     <link rel="icon" type="image/png" href="../Images/Eco-track-white-logo.png">
-    <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/styles/driver-login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&family=Outfit:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/driver-login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&family=Outfit:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
 
-<nav class="navbar">
+    <nav class="navbar">
         <div class="nav-logo">
-            <img src="Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+            <img src="../Images/Eco-track-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
             Eco-Track
         </div>
-        <div class="glass-capsule">
-            <ul class="nav-links">
-    <li><a href="../index.html">Home</a></li>
-    <li><a href="../pages/about.html">About</a></li>
-    <li><a href="../pages/community.html">Community</a></li>
-    <li><a href="smart-bins.html">Smart Bins</a></li>
-    <li><a href="../pages/rewards.html">Dual Rewards</a></li>
-    <li><a href="../pages/faq.html">FAQ</a></li>
-</ul>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
         </div>
-<div class="nav-actions">
-    <a href="../pages/login.html" class="user-portal-link">User Portal</a>
-    <a href="../pages/driver-login.html" class="btn-login-accent">Driver Hub</a>
-</div>
+
+        <div class="nav-menu-wrapper" id="nav-menu-wrapper">
+            <div class="glass-capsule">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="community.html">Community</a></li>
+                    <li><a href="smart-bins.html">Smart Bins</a></li>
+                    <li><a href="rewards.html">Dual Rewards</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="nav-actions">
+                <a href="login.html" class="user-portal-link active">User Portal</a>
+                <a href="driver-login.html" class="btn-login-accent">Driver Hub</a>
+            </div>
+        </div>
     </nav>
 
-
-
-<main class="auth-wrapper">
-    <div class="glass-card">
-        <header class="auth-header centered">
-            <div class="brand-line">
-                <img src="../Images/Eco-track-logo.png" alt="Logo" class="auth-logo">
-                <span class="brand-name">Eco-Track</span>
-            </div>
-            <h2 id="dynamicTitle">Fleet Access Portal</h2>
-           
-        </header>
-
-        <div id="loginBox" class="auth-box active">
-            <form id="loginForm">
-                <div class="input-group">
-                    <label>Email</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" id="email" placeholder="name@gmail.com" required>
+    <main class="auth-page-wrapper">
+        <div class="premium-auth-card animate-fade-up">
+            
+            <div class="auth-showcase">
+                <div class="showcase-overlay"></div>
+                <div class="showcase-content">
+                    <img src="../Images/Eco-track-white-logo.png" alt="Logo" class="showcase-logo" onerror="this.style.display='none'">
+                    <h2>Fleet Operations Command.</h2>
+                    <p>Authorized access for Eco-Track logistics personnel only. Secure login for route management and real-time load processing.</p>
+                    
+                    <div class="showcase-stats">
+                        <div class="stat-pill">
+                            <i class="fas fa-users"></i> 15,000+ Eco-Warriors
+                        </div>
+                        <div class="stat-pill">
+                            <i class="fas fa-leaf"></i> 500+ Tons Offset
+                        </div>
                     </div>
                 </div>
-                
-                <div class="input-group">
-                    <label>Password</label>
-                    <div class="input-wrapper">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" id="password" placeholder="••••••" required>
-                    </div>
-                </div>
-
-                <div class="form-options">
-                    <label class="remember-me">
-                        <input type="checkbox"> Remember me
-                    </label>
-                    <a href="#" class="forgot-pw">Forgot Password?</a>
-                </div>
-
-                <button type="submit" class="btn-primary">SIGN IN</button>
-            </form>
-            
-            <div class="mini-text"><span>─────── or ───────</span></div>
-            
-            <div class="social-row">
-                <button type="button" class="s-tile" onclick="socialAuth('Google')">
-                    <img src="../Images/google.png" alt="Google">
-                </button>
-                <button type="button" class="s-tile" onclick="socialAuth('Facebook')">
-                    <img src="../Images/facebook.png" alt="Facebook">
-                </button>
             </div>
-            
-            
+
+            <div class="auth-form-area" id="mainCard">
+                <div class="form-header stagger-1">
+                    <h2 id="dynamicTitle">Fleet Access Panel</h2>
+                    <p class="form-subtitle">Please enter your details to continue.</p>
+                </div>
+
+                <div id="loginBox" class="auth-box">
+                    <form id="loginForm">
+                        <div class="input-group stagger-2">
+                            <label>Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" placeholder="name@email.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="input-group stagger-3">
+                            <label>Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+
+                        <div class="form-options stagger-4">
+                            <label class="remember-me">
+                                <input type="checkbox"> <span>Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-pw">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn-primary stagger-4">Sign In</button>
+                    </form>
+                    
+                    <div class="divider-container stagger-5">
+                        <div class="divider-line"></div>
+                        <span class="divider-text">Or continue with</span>
+                        <div class="divider-line"></div>
+                    </div>
+                    
+                    <div class="social-row stagger-5">
+                        <button type="button" class="btn-social google-btn" onclick="socialAuth('Google')">
+                            <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22px" height="22px">
+                                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z"/>
+                                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                            </svg>
+                            Sign in with Google
+                        </button>
+                    </div>
+                    
+                    <p class="switch-link stagger-5">New Member? <a href="javascript:void(0)" onclick="switchAuth('signup')">Create an account</a></p>
+                </div>
+
+                <div id="registerBox" class="auth-box">
+                    <form id="registerForm">
+                        <div class="input-group stagger-1">
+                            <label>Full Name</label>
+                            <div class="input-wrapper">
+                                <i class="fa fa-user"></i>
+                                <input type="text" placeholder="John Doe" required>
+                            </div>
+                        </div>
+                        <div class="input-group stagger-2">
+                            <label>Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fa fa-envelope"></i>
+                                <input type="email" placeholder="name@email.com" required>
+                            </div>
+                        </div>
+                        <div class="input-group stagger-3">
+                            <label>Create Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                    
+                        <div class="form-options stagger-4">
+                            <label class="remember-me terms-check">
+                                <input type="checkbox" id="terms" required> 
+                                <span>I agree to the <a href="#" class="forgot-pw">Terms & Conditions</a></span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary stagger-4">Create Account</button>
+                    </form>
+
+                    <div class="divider-container stagger-5">
+                        <div class="divider-line"></div>
+                        <span class="divider-text">Or register with</span>
+                        <div class="divider-line"></div>
+                    </div>
+                    
+                    <div class="social-row stagger-5">
+                        <button type="button" class="btn-social google-btn" onclick="socialAuth('Google')">
+                            <svg class="google-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="22px" height="22px">
+                                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z"/>
+                                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                            </svg>
+                            Sign up with Google
+                        </button>
+                    </div>
+                    
+                    <p class="switch-link stagger-5">Already a member? <a href="javascript:void(0)" onclick="switchAuth('login')">Sign In</a></p>
+                </div>
+            </div>
         </div>
-    </div>
-</main>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    </main>
 
     <footer class="mega-footer">
-        
-    <div class="footer-bg-grid"></div>
-        
+        <div class="footer-bg-grid"></div>
         <div class="footer-particles">
             <div class="f-particle fp-1"></div>
             <div class="f-particle fp-2"></div>
             <div class="f-particle fp-3"></div>
             <div class="f-particle fp-4"></div>
         </div>
-
         <div class="footer-laser"></div>
         
         <div class="footer-container">
-            
             <div class="footer-col brand-col animate-fade-up">
                 <div class="nav-logo text-white" style="margin-bottom: 20px;">
-                    <img src="Images/Eco-track-white-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
+                    <img src="../Images/Eco-track-white-logo.png" alt="Logo" class="header-logo" onerror="this.style.display='none'">
                     Eco-Track
                 </div>
                 <p class="footer-about">Eco-Track is designing the technology that will power tomorrow’s cleaner world. Smarter systems, greener cities, and a connected ecosystem built for the next generation.</p>
@@ -141,16 +204,16 @@
                 </div>
             </div>
 
-             <div class="footer-col animate-fade-up delay-1">
-           <h4 class="footer-title">Office</h4>
-           <div class="office-info">
-         <p class="office-text">United Arab Emirates</p>
-         <p class="office-text">Tech Innovation Hub, Dubai</p>
-         <p class="office-text">Horizon Tech Tower</p>
-         <p class="office-text support">Email: support@ecotrack.com</p>
-         <p class="office-text">Phone: +971 50 871 2479</p>
-           </div>
-              </div>
+            <div class="footer-col animate-fade-up delay-1">
+                <h4 class="footer-title">Office</h4>
+                <div class="office-info">
+                    <p class="office-text">United Arab Emirates</p>
+                    <p class="office-text">Tech Innovation Hub, Dubai</p>
+                    <p class="office-text">Horizon Tech Tower</p>
+                    <p class="office-text support">Email: support@ecotrack.com</p>
+                    <p class="office-text">Phone: +971 50 871 2479</p>
+                </div>
+            </div>
 
             <div class="footer-col animate-fade-up delay-1">
                 <h4 class="footer-title">Platform</h4>
@@ -167,19 +230,16 @@
                 <ul class="footer-links">
                     <li><a href="login.html">User Dashboard</a></li>
                     <li><a href="driver-login.html">Driver Hub</a></li>
-                    
-                   
                 </ul>
             </div>
 
-             <div class="footer-col animate-fade-up delay-3">
+            <div class="footer-col animate-fade-up delay-3">
                 <h4 class="footer-title">Support</h4>
                 <ul class="footer-links">
                     <li><a href="../index.html#contact">Contact Support</a></li>
-                    <li><a href="../pages/faq.html">System FAQs</a></li>
+                    <li><a href="faq.html">System FAQs</a></li>
                 </ul>
             </div>
-
         </div>
 
         <hr class="footer-divider">
@@ -207,6 +267,6 @@
         </div>
     </footer>
 
-    <script src="javascript/script.js"></script>
+    <script src="../javascript/script.js"></script>
 </body>
 </html>

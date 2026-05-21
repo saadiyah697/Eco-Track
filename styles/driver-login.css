@@ -1,90 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700&display=swap');
+/* =========================================
+   USER PORTAL: PREMIUM LOGIN REDESIGN
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@700;800&display=swap');
 
 :root {
     --navy: #223c56;
     --vivid-teal: #1abc9c;
-    --eco-green: #94c313;
+    --eco-green: #a4de02;
+    --bg-light: #f4f7f6;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
     --white: #ffffff;
+    --input-bg: #f8fafc;
+    --input-border: #e2e8f0;
 }
 
 body {
-    background: url('../Images/db1.png') no-repeat; 
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background-color: var(--bg-light);
     margin: 0;
     font-family: 'Inter', sans-serif;
-    color: var(--white);
-    /* Changed to allow scrolling to the footer */
-    min-height: 100vh;
+    color: var(--text-dark);
     overflow-x: hidden;
-    overflow-y: auto;
 }
 
-.auth-wrapper {
-
-    min-height: 100vh; 
+/* --- Layout & Container --- */
+.auth-page-wrapper {
+    min-height: 100vh;
     width: 100%;
     display: flex;
-    justify-content: center; 
-    align-items: center;     
-    position: relative;
-    padding-top: 120px; 
-    padding-bottom: 60px; 
-    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 5% 60px; /* Accounts for navbar */
+    background: radial-gradient(circle at top right, #e2eceb, var(--bg-light));
 }
 
-.glass-card {
-    position: relative;
-    z-index: 10;
+.premium-auth-card {
+    display: flex;
     width: 100%;
-    max-width: 360px;
-    background: rgba(255, 255, 255, 0.05); 
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 28px;
-    padding: 25px 30px; 
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6);
+    max-width: 1100px;
+    height: 650px; /* LOCKED HEIGHT: prevents the card from stretching */
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(34, 60, 86, 0.08);
+    overflow: hidden; /* Hides anything that tries to break out */
+    position: relative;
 }
 
-.auth-header.centered {
+/* --- Left Side: Brand Showcase --- */
+.auth-showcase {
+    flex: 1;
+    position: relative;
+    background: url('../Images/db444.jpg') no-repeat center center;
+    background-size: cover;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
+    justify-content: center;
+    padding: 60px;
+    color: var(--white);
+    overflow: hidden;
 }
 
-.brand-line {
+.showcase-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(34, 60, 86, 0.95) 0%, rgba(22, 186, 39, 0.8) 100%);
+    z-index: 1;
+}
+
+.showcase-content {
+    position: relative;
+    z-index: 2;
+    /* Gentle Floating Animation */
+    animation: gentleFloat 6s infinite ease-in-out;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes gentleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.showcase-logo {
+    height: 45px;
+    width: auto;
+    margin-bottom: 30px;
+    align-self: flex-start;
+}
+
+.auth-showcase h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--white);
+    margin-top: 0;
+}
+
+.auth-showcase p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 40px;
+    max-width: 90%;
+}
+
+.showcase-stats {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-pill {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    color: var(--white);
+}
+
+/* --- Right Side: Forms Area --- */
+.auth-form-area {
+    flex: 1;
+    padding: 60px 80px;
+    position: relative;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-header {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.form-header h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    color: var(--navy);
     margin-bottom: 5px;
 }
 
-.auth-logo { height: 32px; width: auto; }
-
-.brand-name {
-    font-family: 'Outfit', sans-serif;
-    font-size: 2.1rem;
-    font-weight: 700;
+.form-subtitle {
+    color: var(--text-muted);
+    font-size: 1rem;
 }
 
-h2 {
-    font-family: 'Inter', sans-serif;
-    font-size: 1.9rem;
-    margin: 0;
-    letter-spacing: -0.5px;
-    color: var(--navy);
+/* Sliding Box Logic */
+.auth-box {
+    width: 100%;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.input-group { margin-bottom: 12px; }
+#registerBox {
+    position: absolute;
+    top: 60px; /* Matches padding of form area */
+    left: 80px;
+    right: 80px;
+    transform: translateX(50px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Active State Triggered by JS */
+.active-signup #loginBox {
+    transform: translateX(-50px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.active-signup #registerBox {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Form Inputs */
+.input-group {
+    margin-bottom: 20px;
+}
 
 .input-group label {
     display: block;
     font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
     margin-bottom: 8px;
-    opacity: 0.9;
 }
 
 .input-wrapper {
@@ -95,30 +205,43 @@ h2 {
 
 .input-wrapper i {
     position: absolute;
-    right: 15px;
-    color: #5463a5; 
-    font-size: 0.95rem;
-    z-index: 2;
+    left: 16px;
+    color: #94a3b8;
+    font-size: 1rem;
+    transition: color 0.3s ease;
 }
 
 .input-group input {
     width: 100%;
-    padding: 14px 45px 14px 15px;
+    padding: 14px 15px 14px 45px;
     border-radius: 12px;
-    border: none;
-    background: rgba(255, 255, 255, 0.95);
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
     font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    transition: all 0.3s ease;
     outline: none;
-    color: var(--navy);
 }
 
-/* Remember Me & Forgot Password row */
+.input-group input:focus {
+    background: var(--white);
+    border-color: var(--eco-green);
+    box-shadow: 0 0 0 4px rgba(26, 188, 156, 0.1);
+}
+
+.input-group input:focus + i, 
+.input-wrapper:focus-within i {
+    color: var(--eco-green);
+}
+
+/* Options & Links */
 .form-options {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 15px 0 20px 0;
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+    margin-bottom: 25px;
 }
 
 .remember-me {
@@ -126,83 +249,206 @@ h2 {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+    color: var(--text-muted);
 }
 
 .remember-me input {
-    accent-color: var(--navy);
     width: 16px;
     height: 16px;
+    accent-color: var(--eco-green);
+    cursor: pointer;
 }
 
 .forgot-pw {
-    color: var(--navy);
+    color: var(--eco-green);
     text-decoration: none;
     font-weight: 600;
+    transition: color 0.3s ease;
 }
 
+.forgot-pw:hover { color: var(--navy); }
+
+/* Buttons */
 .btn-primary {
     width: 100%;
-    padding: 14px;
-    background: #223c56;
-    color: white;
+    padding: 15px;
+    background: var(--eco-green);
+    color: var(--white);
     border: none;
-    border-radius: 40px;
-    font-weight: 800;
+    border-radius: 12px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-    filter: brightness(1.1);
+    background: var(--vivid-teal);
+    color: var(--navy);
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(148, 195, 19, 0.3);
+    box-shadow: 0 10px 20px rgba(2, 222, 200, 0.2);
 }
 
-.mini-text {
-    text-align: center;
-    margin: 20px 0;
-    font-size: 0.94rem;
-    font-weight: 600;
+/* Dividers & Socials */
+.divider-container {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+}
+
+.divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--input-border);
+}
+
+.divider-text {
+    padding: 0 15px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
     text-transform: uppercase;
-    opacity: 0.7;
+    font-weight: 600;
 }
 
 .social-row {
     display: flex;
     gap: 15px;
-    justify-content: center;
-}
-.circle-element {
-    width: 55px;
-    height: 55px;
-    border-radius: 50%;
+    margin-bottom: 25px;
 }
 
-.s-tile {
-    width: 55px;
-    height: 55px;
-    background: white;
-    border-radius: 50px;
+.btn-social {
+    flex: 1;
+    padding: 12px;
+    background: var(--white);
+    border: 2px solid var(--input-border);
+    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: var(--text-dark);
     cursor: pointer;
-    transition: 0.3s;
-    overflow: hidden;
-    border: none;
+    transition: all 0.3s ease;
 }
 
-.s-tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    padding: 5x;
-    border-radius: 50px;
+.btn-social:hover {
+    background: var(--input-bg);
+    border-color: #cbd5e1;
+    transform: translateY(-2px);
 }
 
-.s-tile:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+.switch-link {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-muted);
 }
 
+.switch-link a {
+    color: var(--eco-green);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.switch-link a:hover { color: var(--navy); }
+
+/* --- Fix: Prevents the SVG from exploding in size --- */
+.google-icon {
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    max-width: 24px !important;
+    flex-shrink: 0 !important;
+    display: block !important;
+}
+
+/* --- Staggered Form Entrance Animations --- */
+.stagger-1 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.1s; opacity: 0; transform: translateY(15px); }
+.stagger-2 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s; opacity: 0; transform: translateY(15px); }
+.stagger-3 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s; opacity: 0; transform: translateY(15px); }
+.stagger-4 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.4s; opacity: 0; transform: translateY(15px); }
+.stagger-5 { animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s; opacity: 0; transform: translateY(15px); }
+
+@keyframes slideUpFade {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Re-trigger Staggers on Box Switch --- */
+.active-signup #registerBox .stagger-1,
+.active-signup #registerBox .stagger-2,
+.active-signup #registerBox .stagger-3,
+.active-signup #registerBox .stagger-4,
+.active-signup #registerBox .stagger-5 {
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+/* Tablets & Small Laptops (Max-width: 1024px) */
+@media (max-width: 1024px) {
+    .premium-auth-card {
+        flex-direction: column;
+        height: auto; /* Unlocks height for stacked mobile view */
+        min-height: 800px; 
+    }
+    
+    .auth-showcase {
+        padding: 50px 40px;
+        text-align: center;
+    }
+
+    .showcase-stats {
+        justify-content: center;
+    }
+
+    /* Override JS absolute positioning for stacked layout */
+    .auth-form-area {
+        padding: 50px 40px;
+        min-height: 600px;
+    }
+    
+    #registerBox {
+        left: 40px;
+        right: 40px;
+        top: 50px;
+    }
+}
+
+/* Mobile Phones (Max-width: 768px) */
+@media (max-width: 768px) {
+    .auth-page-wrapper {
+        padding: 100px 5% 40px;
+    }
+    
+    .auth-showcase {
+        padding: 40px 20px;
+    }
+
+    .auth-showcase h2 {
+        font-size: 2rem;
+    }
+
+    .auth-showcase p {
+        font-size: 1rem;
+        margin: 0 auto 20px;
+    }
+    
+    .auth-form-area {
+        padding: 40px 20px;
+    }
+
+    #registerBox {
+        left: 20px;
+        right: 20px;
+        top: 40px;
+    }
+
+    .social-row {
+        flex-direction: column;
+    }
+}
