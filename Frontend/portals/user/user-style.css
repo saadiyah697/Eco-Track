@@ -1110,3 +1110,298 @@ body {
 
 /*  MY REWARDS PAGE END */
 
+/* =========================================
+   SPA & ANIMATION LOGIC (Add to bottom)
+========================================= */
+
+/* --- SPA View Switching --- */
+.view-section {
+    display: none;
+    opacity: 0;
+}
+
+.view-section.active {
+    display: block;
+    animation: fadeInView 0.5s ease forwards;
+}
+
+@keyframes fadeInView {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Entrance Animations (Staggered) --- */
+.animate-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFade 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.stagger-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-2 {
+    animation-delay: 0.2s;
+}
+
+.stagger-3 {
+    animation-delay: 0.3s;
+}
+
+@keyframes slideUpFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Mobile Hamburger & Responsive Overrides --- */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger to X Animation */
+.hamburger.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Mobile Breakpoints --- */
+@media (max-width: 1024px) {
+    .insights-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid-3-col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .hide-mobile {
+        display: none;
+    }
+
+    .top-navbar {
+        padding: 0 20px;
+    }
+
+    .content-area {
+        padding: 30px 20px;
+    }
+
+    /* Convert Sidebar to Slide-out Mobile Menu */
+    .side-column {
+        position: fixed;
+        left: -100%;
+        top: 85px;
+        height: calc(100vh - 85px);
+        width: 260px;
+        z-index: 1000;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .side-column.open {
+        left: 0;
+    }
+
+    /* Adjust Layouts for Mobile */
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-grid-3-col {
+        grid-template-columns: 1fr;
+    }
+
+    .rewards-compact-layout {
+        flex-direction: column;
+    }
+
+    .welcome-banner h1 {
+        font-size: 2rem;
+    }
+
+    .main-stat-display h2 {
+        font-size: 2.2rem;
+    }
+}
+
+/* =========================================
+   NOTIFICATIONS & ACTIVITY FEED
+========================================= */
+
+/* --- Notification Bell --- */
+.notification-wrapper { position: relative; margin-right: 10px; }
+
+.notification-bell {
+    font-size: 1.3rem;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.notification-bell:hover { transform: scale(1.1) rotate(5deg); }
+
+.notif-badge {
+    position: absolute;
+    top: -5px; right: -8px;
+    background: #ef5350;
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 10px;
+    border: 2px solid var(--eco-green);
+}
+
+/* --- Notification Dropdown --- */
+.notif-dropdown {
+    position: absolute;
+    top: 45px; right: -50px;
+    width: 320px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    border: 1px solid #edf2f7;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    z-index: 1000;
+}
+
+.notif-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.notif-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.notif-header h4 { margin: 0; color: var(--navy); font-size: 1rem; }
+.mark-read { background: none; border: none; color: var(--text-muted); font-size: 0.8rem; cursor: pointer; }
+.mark-read:hover { color: var(--eco-green); text-decoration: underline; }
+
+.notif-body { max-height: 300px; overflow-y: auto; }
+
+.notif-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 20px;
+    border-bottom: 1px solid #f8fafc;
+    transition: background 0.2s;
+    cursor: pointer;
+}
+
+.notif-item:hover { background: #f8fafc; }
+.notif-item.unread { background: #f0fdf4; }
+
+.notif-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1rem; flex-shrink: 0;
+}
+
+.notif-icon.green { background: #dcfce7; color: #16a34a; }
+.notif-icon.blue { background: #dbeafe; color: #2563eb; }
+
+.notif-content p { margin: 0 0 5px 0; font-size: 0.9rem; color: var(--text-dark); line-height: 1.4; }
+.notif-content span { font-size: 0.75rem; color: var(--text-muted); }
+
+/* --- Activity List --- */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.activity-item {
+    background: white;
+    border: 1px solid #edf2f7;
+    border-radius: 16px;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+    border-color: #cbd5e1;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.act-icon {
+    width: 50px; height: 50px;
+    border-radius: 12px;
+    display: flex; justify-content: center; align-items: center;
+    font-size: 1.2rem; margin-right: 20px;
+}
+
+.act-icon.plastic { background: rgba(52, 152, 219, 0.1); color: #3498db; }
+.act-icon.ewaste { background: rgba(155, 89, 182, 0.1); color: #9b59b6; }
+
+.act-details { flex-grow: 1; }
+.act-details h4 { margin: 0 0 5px 0; font-size: 1.05rem; color: var(--navy); }
+.act-details p { margin: 0; font-size: 0.85rem; color: var(--text-muted); }
+
+.act-meta { text-align: right; }
+.act-points { font-weight: 700; font-size: 1.1rem; margin-bottom: 5px; }
+.text-green { color: var(--eco-green); }
+.act-date { font-size: 0.8rem; color: var(--text-muted); }
+
+@media (max-width: 768px) {
+    .notif-dropdown { right: -80px; width: 300px; }
+    .activity-item { flex-wrap: wrap; }
+    .act-meta { width: 100%; text-align: left; margin-top: 15px; display: flex; justify-content: space-between; align-items: center; }
+}

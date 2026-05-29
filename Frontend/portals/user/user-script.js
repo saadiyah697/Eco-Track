@@ -1,46 +1,159 @@
-// Function to handle redemption
+/* =========================================
+   GLOBAL LOADER FADE-OUT LOGIC
+========================================= */
+window.addEventListener('load', function() {
+    const loader = document.getElementById('global-loader');
+    if (loader) {
+        loader.classList.add('hidden');
+    }
+});
+
+/* =========================================
+   USER SPA ROUTING, MOBILE MENU & NOTIFS
+========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.side-links a');
+    const sections = document.querySelectorAll('.view-section');
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    // 1. Mobile Menu Toggle
+    if (mobileBtn && sidebar) {
+        mobileBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            mobileBtn.classList.toggle('open');
+        });
+    }
+
+    // 2. Notification Dropdown Logic
+    const notifBtn = document.getElementById('notif-btn');
+    const notifDropdown = document.getElementById('notif-dropdown');
+
+    if (notifBtn && notifDropdown) {
+        notifBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            notifDropdown.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!notifBtn.contains(e.target) && !notifDropdown.contains(e.target)) {
+                notifDropdown.classList.remove('show');
+            }
+        });
+    }
+
+    // 3. SPA Navigation Logic
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            // Remove active states from all links
+            navLinks.forEach(l => l.classList.remove('active'));
+            // Add active state to clicked link
+            e.currentTarget.classList.add('active');
+
+            // Hide all sections
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+            });
+
+            // Show target section
+            const targetId = e.currentTarget.getAttribute('data-target');
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+
+            // Trigger Map Resize if tracking tab is opened (fixes hidden map bug)
+            if (targetId === 'view-livetracking' && typeof google !== 'undefined') {
+                setTimeout(() => {
+                    if (map) {
+                        google.maps.event.trigger(map, 'resize');
+                        map.setCenter({ lat: 25.2048, lng: 55.2708 });
+                    }
+                }, 100);
+            }
+
+            // Close mobile menu if open
+            if (window.innerWidth <= 768 && sidebar) {
+                sidebar.classList.remove('open');
+                if (mobileBtn) mobileBtn.classList.remove('open');
+            }
+        });
+    });
+
+    // 4. Handle Pickup Form Submissions (Premium Alert)
+    const pickupForm = document.getElementById('pickupForm');
+    if (pickupForm) {
+        pickupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Driver Pinged!',
+                text: 'Your pickup request has been routed to the nearest available driver. Head to Live Tracking to monitor their arrival.',
+                confirmButtonColor: '#04886d',
+                confirmButtonText: 'Track Pickup',
+                showCancelButton: true,
+                cancelButtonText: 'Close',
+                cancelButtonColor: '#718096',
+                backdrop: `rgba(34, 60, 86, 0.6)`
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Automatically route the user to the Live Tracking view
+                    document.querySelector('[data-target="view-livetracking"]').click();
+                    
+                    // Simulate an active request turning on in the UI
+                    document.getElementById('no-request-view').style.display = 'none';
+                    document.getElementById('active-tracking-view').style.display = 'block';
+                }
+            });
+
+            pickupForm.reset();
+        });
+    }
+});
+
+
+/* =========================================
+   REWARDS LOGIC
+========================================= */
 function redeemPoints(button) {
-    // 1. Get the current balance from the UI
     const balanceElement = document.getElementById('user-points');
+    const dashBalanceElement = document.getElementById('dashboard-points-display');
     let currentBalance = parseInt(balanceElement.innerText);
 
-    // 2. Find the cost of the specific voucher clicked
-    // We look for the sibling element with the class 'cost-tag'
     const card = button.parentElement;
     const costElement = card.querySelector('.cost-tag');
     const voucherCost = parseInt(costElement.getAttribute('data-cost'));
     const voucherName = card.querySelector('h6').innerText;
 
-    // 3. Logic Check: Does the user have enough points?
     if (currentBalance >= voucherCost) {
-        // Calculate new balance
         const newBalance = currentBalance - voucherCost;
+        balanceElement.innerText = newBalance + " PTS";
+        dashBalanceElement.innerHTML = `${newBalance} <span class="pts">PTS</span>`;
 
-        // 4. Update the UI
-        balanceElement.innerText = newBalance;
-
-        // Visual feedback
         showSuccess(button, voucherName);
-        
-        // Optional: Trigger a console log for your backend/Node.js testing
-        console.log(`Success: Redeemed ${voucherName}. New Balance: ${newBalance}`);
     } else {
-        // Handle insufficient points
         showError(button);
     }
 }
 
-// Visual feedback functions
 function showSuccess(button, name) {
     const originalText = button.innerText;
     button.innerText = "Redeemed!";
-    button.style.backgroundColor = "#a4de02"; // Your lime-green highlight
+    button.style.backgroundColor = "#a4de02"; 
     button.style.color = "#223c56";
     button.disabled = true;
 
-    alert(`Congratulations! Your ${name} voucher has been sent to your email.`);
+    Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: `Your ${name} voucher has been sent to your email.`,
+        confirmButtonColor: '#04886d'
+    });
 
-    // Reset button after 3 seconds if you want to allow multiple purchases
     setTimeout(() => {
         button.innerText = originalText;
         button.style.backgroundColor = ""; 
@@ -52,7 +165,7 @@ function showSuccess(button, name) {
 function showError(button) {
     const originalText = button.innerText;
     button.innerText = "Insufficient Points";
-    button.style.backgroundColor = "#e74c3c"; // Red for error
+    button.style.backgroundColor = "#e74c3c"; 
     
     setTimeout(() => {
         button.innerText = originalText;
@@ -61,46 +174,29 @@ function showError(button) {
 }
 
 
-// live tracking 
-
-// Variable to store the map object
+/* =========================================
+   LIVE TRACKING LOGIC (GOOGLE MAPS)
+========================================= */
 let map;
 let driverMarker;
 
 function initMap() {
-    console.log("Map Initializing...");
-
-    // 1. Set coordinates (Example: Sharjah/Dubai area)
     const userLocation = { lat: 25.2048, lng: 55.2708 }; 
     const driverStartLocation = { lat: 25.2150, lng: 55.2850 };
-
-    // 2. Initialize the Map
-    // Ensure 'map' matches the ID in your HTML <div id="map"></div>
     const mapElement = document.getElementById("map");
     
-    if (!mapElement) {
-        console.error("Error: Element with ID 'map' not found.");
-        return;
-    }
+    if (!mapElement) return;
 
     map = new google.maps.Map(mapElement, {
         zoom: 14,
         center: userLocation,
-        disableDefaultUI: true, // Hides zoom/street view for a cleaner dashboard look
+        disableDefaultUI: true, 
         styles: [
-            // Professional "Silver" Map Theme
-            {
-                "featureType": "poi",
-                "stylers": [{ "visibility": "off" }] // Hide points of interest
-            },
-            {
-                "featureType": "transit",
-                "stylers": [{ "visibility": "off" }]
-            }
+            { "featureType": "poi", "stylers": [{ "visibility": "off" }] },
+            { "featureType": "transit", "stylers": [{ "visibility": "off" }] }
         ]
     });
 
-    // 3. Add User Marker (You)
     new google.maps.Marker({
         position: userLocation,
         map: map,
@@ -108,25 +204,21 @@ function initMap() {
         label: "U"
     });
 
-    // 4. Add Driver Marker (The Truck)
     driverMarker = new google.maps.Marker({
         position: driverStartLocation,
         map: map,
         icon: {
-            // Using a standard high-quality truck icon
             url: "https://cdn-icons-png.flaticon.com/512/1048/1048329.png",
             scaledSize: new google.maps.Size(45, 45)
         }
     });
 
-    // 5. Optional: Simulation of movement
-    // In a real app, this data would come from your Firebase/Database
     simulateMovement();
 }
 
-// Function to make the truck move slightly every few seconds
 function simulateMovement() {
     setInterval(() => {
+        if (!driverMarker) return;
         const currentPos = driverMarker.getPosition();
         const newLat = currentPos.lat() - 0.0001;
         const newLng = currentPos.lng() - 0.0001;
@@ -136,5 +228,4 @@ function simulateMovement() {
     }, 3000);
 }
 
-// Make sure the function is available globally for the Google Maps Callback
 window.initMap = initMap;

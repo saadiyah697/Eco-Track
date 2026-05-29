@@ -3,41 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Eco-Champion Portal | Eco-Track</title>
     <link rel="icon" type="image/png" href="../user/user-images/Eco-track-white-logo.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="user-style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-
 <body>
+
+    <div id="global-loader" class="global-loader">
+        <div class="loader-spinner">
+            <div class="loader-ring"></div>
+            <div class="loader-core"></div>
+        </div>
+    </div>
 
     <header class="top-navbar">
         <div class="nav-left">
+            <div class="hamburger" id="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <img src="../user/user-images/Eco-track-white-logo.png" alt="Eco-Track Logo" class="logo">
             <div class="brand-info">
                 <span class="brand-text">Eco-Track</span>
-                
             </div>
         </div>
         <div class="nav-right">
+            
+            <div class="notification-wrapper">
+                <div class="notification-bell" id="notif-btn">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notif-badge">2</span>
+                </div>
+                
+                <div class="notif-dropdown" id="notif-dropdown">
+                    <div class="notif-header">
+                        <h4>Notifications</h4>
+                        <button class="mark-read">Mark all as read</button>
+                    </div>
+                    <div class="notif-body">
+                        <div class="notif-item unread">
+                            <div class="notif-icon green"><i class="fa-solid fa-leaf"></i></div>
+                            <div class="notif-content">
+                                <p><strong>+25 Points!</strong> Plastic waste collected.</p>
+                                <span>10 mins ago</span>
+                            </div>
+                        </div>
+                        <div class="notif-item unread">
+                            <div class="notif-icon blue"><i class="fa-solid fa-truck-fast"></i></div>
+                            <div class="notif-content">
+                                <p><strong>Driver Assigned.</strong> Ahmed is on the way.</p>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="user-badge">
                 <i class="fa-solid fa-circle-user"></i>
-                <span>Eco Champion</span>
+                <span class="hide-mobile">Eco Champion</span>
             </div>
-            <a href="../../index.html" class="logout-link">Logout</a>
+            <a href="../../index.html" class="logout-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="hide-mobile">Logout</span></a>
         </div>
     </header>
 
     <div class="layout-wrapper">
-        <nav class="side-column">
+        <nav class="side-column" id="sidebar">
             <div class="side-nav-wrapper">
-                <ul class="side-links">
-                    <li><a href="user-dashboard.html" class="active"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
-                    <li><a href="user-pickup.html"><i class="fa-solid fa-truck-pickup"></i> Request Pickup</a></li>
-                    <li><a href="user-livetracking.html" ><i class="fa-solid fa-map-location-dot"></i> Live Tracking</a></li>
-                    <li><a href="user-reward.html"><i class="fa-solid fa-gift"></i> My Rewards</a></li>
-                    <li><a href="user-profile.html"><i class="fa-solid fa-user-gear"></i> My Profile</a></li>
+                <ul class="side-links" id="nav-links">
+                    <li><a href="#view-dashboard" class="active" data-target="view-dashboard"><i class="fa-solid fa-gauge-high"></i> Dashboard</a></li>
+                    <li><a href="#view-pickup" data-target="view-pickup"><i class="fa-solid fa-truck-pickup"></i> Request Pickup</a></li>
+                    <li><a href="#view-livetracking" data-target="view-livetracking"><i class="fa-solid fa-map-location-dot"></i> Live Tracking</a></li>
+                    <li><a href="#view-reward" data-target="view-reward"><i class="fa-solid fa-gift"></i> My Rewards</a></li>
+                    <li><a href="#view-profile" data-target="view-profile"><i class="fa-solid fa-user-gear"></i> My Profile</a></li>
                 </ul>
             </div>
             <div class="side-footer">
@@ -46,115 +88,426 @@
         </nav>
 
         <main class="content-area">
-            <div class="welcome-banner">
-                <div class="banner-text">
-                    <h1>Welcome Back, <span class="highlight">Green Member!</span></h1>
-                    <p>Your sustainability journey is just beginning. Every kilogram counts toward a greener future.</p>
-                </div>
-                <div class="banner-status">
-                    <span class="status-pill">Account Status: Active</span>
-                </div>
-            </div>
-
-            <!-- ROW 1: Impact Metrics -->
-            <div class="insights-grid">
-                <div class="insight-card circle-card">
-                    <h3>Overall Impact</h3>
-                    <div class="chart-container">
-                        <svg viewBox="0 0 36 36" class="circular-chart green">
-                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <path class="circle" id="impact-circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <text x="18" y="20.35" class="percentage" id="impact-val">0%</text>
-                        </svg>
+            
+            <section id="view-dashboard" class="view-section active">
+                <div class="welcome-banner animate-up">
+                    <div class="banner-text">
+                        <h1>Welcome Back, <span class="highlight">Green Member!</span></h1>
+                        <p>Your sustainability journey is just beginning. Every kilogram counts toward a greener future.</p>
                     </div>
-                    <div class="card-footer-text">Level: <span class="bold">Beginner</span></div>
-                </div>
-
-                <div class="insight-card circle-card">
-                    <h3>CO₂ Offset</h3>
-                    <div class="chart-container">
-                        <svg viewBox="0 0 36 36" class="circular-chart blue">
-                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <path class="circle" id="co2-circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <text x="18" y="20.35" class="percentage" id="co2-val">0kg</text>
-                        </svg>
+                    <div class="banner-status hide-mobile">
+                        <span class="status-pill">Account Status: Active</span>
                     </div>
-                    <div class="card-footer-text">Emissions Prevented</div>
                 </div>
 
-                <div class="insight-card circle-card">
-                    <h3>Waste Recycled</h3>
-                    <div class="chart-container">
-                        <svg viewBox="0 0 36 36" class="circular-chart orange">
-                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <path class="circle" id="waste-circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                            <text x="18" y="20.35" class="percentage" id="waste-val">0kg</text>
-                        </svg>
-                    </div>
-                    <div class="card-footer-text">Total Weight Collected</div>
-                </div>
-            </div>
-
-            <!-- ROW 2: Redesigned Dynamic Boxes -->
-            <div class="bottom-grid">
-                <!-- Premium Wallet Card -->
-                <div class="premium-card wallet-card">
-                    <div class="card-header-row">
-                        <div class="icon-title">
-                            <div class="icon-hex"><i class="fa-solid fa-leaf"></i></div>
-                            <h3>Green Points Wallet</h3>
+                <div class="insights-grid animate-up stagger-1">
+                    <div class="insight-card circle-card">
+                        <h3>Overall Impact</h3>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 36 36" class="circular-chart green">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="25, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="percentage">25%</text>
+                            </svg>
                         </div>
-                        <span class="card-badge">Rewards Active</span>
+                        <div class="card-footer-text">Level: <span class="bold">Beginner</span></div>
                     </div>
-                    <div class="main-stat-display">
-                        <h2 id="points-display">0 <span class="pts">PTS</span></h2>
-                        <p>Complete your first pickup to start earning redeemable points.</p>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-labels">
-                            <span>Points Goal</span>
-                            <span>0/500</span>
+
+                    <div class="insight-card circle-card">
+                        <h3>CO₂ Offset</h3>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 36 36" class="circular-chart blue">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="10, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="percentage">1.2kg</text>
+                            </svg>
                         </div>
-                        <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 0%"></div></div>
+                        <div class="card-footer-text">Emissions Prevented</div>
                     </div>
-                    <a href="user-rewards.html" class="card-action-link">Go to Rewards Store <i class="fa-solid fa-arrow-right"></i></a>
+
+                    <div class="insight-card circle-card">
+                        <h3>Waste Recycled</h3>
+                        <div class="chart-container">
+                            <svg viewBox="0 0 36 36" class="circular-chart orange">
+                                <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <path class="circle" stroke-dasharray="5, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                <text x="18" y="20.35" class="percentage">4kg</text>
+                            </svg>
+                        </div>
+                        <div class="card-footer-text">Total Weight Collected</div>
+                    </div>
                 </div>
 
-                <!-- Premium Collection Card -->
-                <div class="premium-card collection-card">
-                    <div class="card-header-row">
-                        <div class="icon-title">
-                            <div class="icon-hex blue"><i class="fa-solid fa-calendar-check"></i></div>
-                            <h3>Pickup Management</h3>
+                <div class="bottom-grid animate-up stagger-2">
+                    <div class="premium-card wallet-card">
+                        <div class="card-header-row">
+                            <div class="icon-title">
+                                <div class="icon-hex"><i class="fa-solid fa-leaf"></i></div>
+                                <h3>Green Points Wallet</h3>
+                            </div>
+                            <span class="card-badge">Rewards Active</span>
                         </div>
-                        <span class="card-badge info">Verified Service</span>
+                        <div class="main-stat-display">
+                            <h2 id="dashboard-points-display">0 <span class="pts">PTS</span></h2>
+                            <p>Complete your first pickup to start earning redeemable points.</p>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-labels">
+                                <span>Points Goal</span>
+                                <span>0/500</span>
+                            </div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 0%"></div></div>
+                        </div>
+                        <a href="#" class="card-action-link" onclick="document.querySelector('[data-target=\'view-reward\']').click()">Go to Rewards Store <i class="fa-solid fa-arrow-right"></i></a>
                     </div>
-                    <div class="main-stat-display">
-                        <p class="schedule-info">No pickups currently scheduled in your system.</p>
-                        <ul class="benefit-list">
-                            <li><i class="fa-solid fa-circle-check"></i> On-demand scheduling</li>
-                            <li><i class="fa-solid fa-circle-check"></i> Track driver location</li>
-                        </ul>
-                    </div>
-                    <button onclick="location.href='user-pickup.html'" class="cta-btn">Schedule New Pickup <i class="fa-solid fa-plus"></i></button>
-                </div>
-            </div>
 
-            <div class="activity-section">
-                <div class="section-header">
-                    <h3>Recent Activity</h3>
-                    <button class="view-all">View All History</button>
-                </div>
-                <div class="empty-history-premium">
-                    <div class="empty-illustration">
-                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    <div class="premium-card collection-card">
+                        <div class="card-header-row">
+                            <div class="icon-title">
+                                <div class="icon-hex blue"><i class="fa-solid fa-calendar-check"></i></div>
+                                <h3>Pickup Management</h3>
+                            </div>
+                            <span class="card-badge info">Verified Service</span>
+                        </div>
+                        <div class="main-stat-display">
+                            <p class="schedule-info">No pickups currently scheduled in your system.</p>
+                            <ul class="benefit-list">
+                                <li><i class="fa-solid fa-circle-check"></i> On-demand scheduling</li>
+                                <li><i class="fa-solid fa-circle-check"></i> Track driver location</li>
+                            </ul>
+                        </div>
+                        <button onclick="document.querySelector('[data-target=\'view-pickup\']').click()" class="cta-btn">Schedule New Pickup <i class="fa-solid fa-plus"></i></button>
                     </div>
-                    <h4>No recycling history found</h4>
-                    <p>Once you complete a pickup, detailed reports including date, weight, and waste types will appear here.</p>
                 </div>
-            </div>
+
+                <div class="activity-section">
+                    <div class="section-header animate-up stagger-3">
+                        <h3>Recent Activity</h3>
+                        <button class="view-all">View All History</button>
+                    </div>
+                    
+                    <div class="activity-list animate-up stagger-3">
+                        <div class="activity-item">
+                            <div class="act-icon plastic"><i class="fa-solid fa-bottle-water"></i></div>
+                            <div class="act-details">
+                                <h4>Plastics</h4>
+                                <p>Collected by Driver: Ahmed • 2.5 kg</p>
+                            </div>
+                            <div class="act-meta">
+                                <div class="act-points text-green">+ 25 PTS</div>
+                                <div class="act-date">Today, 10:30 AM</div>
+                            </div>
+                        </div>
+
+                        <div class="activity-item">
+                            <div class="act-icon ewaste"><i class="fa-solid fa-plug"></i></div>
+                            <div class="act-details">
+                                <h4>Electronic Waste</h4>
+                                <p>Collected by Driver: Kareem • 1.2 kg</p>
+                            </div>
+                            <div class="act-meta">
+                                <div class="act-points text-green">+ 24 PTS</div>
+                                <div class="act-date">May 18, 02:15 PM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-pickup" class="view-section">
+                <div class="welcome-banner animate-up">
+                    <div class="banner-text">
+                        <h1>Schedule a <span class="highlight">Pickup</span></h1>
+                        <p>Fill in the details below to request a waste collection from your location.</p>
+                    </div>
+                </div>
+
+                <div class="form-container-premium animate-up stagger-1">
+                    <form id="pickupForm">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label><i class="fa-solid fa-recycle"></i> Waste Category</label>
+                                <select id="wasteType" required>
+                                    <option value="" disabled selected>Select Category</option>
+                                    <option value="plastic">Plastics</option>
+                                    <option value="paper">Paper & Cardboard</option>
+                                    <option value="metal">Cans & Tins</option>
+                                    <option value="glass">Glass & Mirror</option>
+                                    <option value="ewaste">Electronic Waste</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label><i class="fa-solid fa-weight-hanging"></i> Estimated Weight (kg)</label>
+                                <input type="number" id="weight" placeholder="e.g. 5" min="1" required>
+                            </div>
+                            <div class="input-group">
+                                <label><i class="fa-solid fa-calendar-day"></i> Preferred Date</label>
+                                <input type="date" id="pickupDate" required>
+                            </div>
+                            <div class="input-group">
+                                <label><i class="fa-solid fa-clock"></i> Preferred Time Slot</label>
+                                <select id="timeSlot" required>
+                                    <option value="morning">Morning (8 AM - 12 PM)</option>
+                                    <option value="afternoon">Afternoon (12 PM - 4 PM)</option>
+                                    <option value="evening">Evening (4 PM - 8 PM)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="input-group full-width">
+                            <label><i class="fa-solid fa-location-dot"></i> Collection Address</label>
+                            <textarea id="address" rows="3" placeholder="Enter your full pickup address..." required></textarea>
+                        </div>
+
+                        <div class="form-footer">
+                            <p class="form-note">* Note: Points will be credited after successful driver verification.</p>
+                            <button type="submit" class="main-cta-btn">Confirm Request <i class="fa-solid fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="view-livetracking" class="view-section">
+                <div class="welcome-banner animate-up">
+                    <div class="banner-text">
+                        <h1>Live <span class="highlight">Tracking</span></h1>
+                        <p>Monitor your active waste collection mission in real-time.</p>
+                    </div>
+                </div>
+
+                <div id="no-request-view" class="live-mission-container empty-tracking-box animate-up stagger-1">
+                    <div class="empty-content">
+                        <i class="fa-solid fa-map-location-dot empty-icon"></i>
+                        <h2>No Active Schedules</h2>
+                        <p>You haven't scheduled a pickup yet. Track your driver here once your request is confirmed.</p>
+                        <button class="btn-schedule-now" onclick="document.querySelector('[data-target=\'view-pickup\']').click()">Request a Pickup</button>
+                    </div>
+                </div>
+
+                <div id="active-tracking-view" class="live-mission-container animate-up stagger-1" style="display: none;">
+                    <div class="mission-header">
+                        <div class="header-main">
+                            <i class="fas fa-satellite-dish satellite-icon"></i>
+                            <h3>Collection Status</h3>
+                            <span class="live-badge">LIVE TRACKING</span>
+                        </div>
+                        <p>Driver is currently 2.4km away from your location</p>
+                    </div>
+
+                    <div class="mission-grid">
+                        <div class="map-widget">
+                            <div id="map" style="min-height: 400px; width: 100%; border-radius: 12px;"></div>
+                            <div class="map-stats-overlay">
+                                <span><i class="fas fa-clock"></i> 12 min</span>
+                                <span><i class="fas fa-road"></i> 2.4 km</span>
+                            </div>
+                        </div>
+
+                        <div class="mission-timeline">
+                            <div class="timeline-item completed">
+                                <div class="step-icon"><i class="fas fa-check"></i></div>
+                                <div class="step-info">
+                                    <h4>Request Confirmed</h4>
+                                    <p>10:30 AM</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item active">
+                                <div class="step-icon"><i class="fas fa-truck-moving"></i></div>
+                                <div class="step-info">
+                                    <h4 class="text-enroute">Driver En Route</h4>
+                                    <p>Ahmed is on the way</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item pending-active">
+                                <div class="step-icon"><i class="fas fa-recycle"></i></div>
+                                <div class="step-info">
+                                    <h4 class="text-collection">Collection Start</h4>
+                                    <p>Waiting for arrival...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-reward" class="view-section">
+                <div class="welcome-text animate-up">
+                    <h1>Redeem your <span class="highlight">Impact</span></h1>
+                    <p>Turn recycled waste into real-world rewards from UAE brands.</p>
+                </div>
+
+                <div class="rewards-compact-layout animate-up stagger-1">
+                    <aside class="sidebar-info">
+                        <div class="chart-card-mini branded-border">
+                            <h4>Waste Points Chart</h4>
+                            <div class="mini-list">
+                                <div class="m-row"><span>Plastics</span> <strong>10 pts/kg</strong></div>
+                                <div class="m-row"><span>Cans & Tins</span> <strong>10 pts/kg</strong></div>
+                                <div class="m-row"><span>E-Waste</span> <strong>20 pts/kg</strong></div>
+                                <div class="m-row"><span>Paper & Cardboard</span> <strong>10 pts/kg</strong></div>
+                                <div class="m-row"><span>Glass & Mirrors</span> <strong>15 pts/kg</strong></div>
+                            </div>
+                            <div class="bonus-box-small spring">
+                                <i class="fa-solid fa-broom"></i>
+                                <span>Spring Cleaning: 20 pts</span>
+                            </div>
+                            <div class="bonus-box-small streak">
+                                <i class="fa-solid fa-calendar-check"></i>
+                                <span>4-Week Streak: 20 pts</span>
+                            </div>
+                            <div class="compact-balance">
+                                <span>My Balance</span>
+                                <strong id="user-points">500 PTS</strong>
+                            </div>
+                        </div>
+                    </aside>
+
+<div class="coupons-main-grid">
+                        <div class="compact-grid">
+                            
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/brr.png" alt="Baskin Robbins" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Baskin Robbins</h6>
+                                <p>AED 25 Voucher</p>
+                                <span class="cost-tag" data-cost="250">250 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+                            
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/etisalat.jfif" alt="Etisalat" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Etisalat</h6>
+                                <p>AED 25 Recharge</p>
+                                <span class="cost-tag" data-cost="250">250 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/delivero.png" alt="Deliveroo" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Deliveroo</h6>
+                                <p>AED 30 Credit</p>
+                                <span class="cost-tag" data-cost="300">300 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/noon1.png" alt="Noon.com" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Noon</h6>
+                                <p>AED 50 Discount</p>
+                                <span class="cost-tag" data-cost="500">500 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+                            
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/lulu.png" alt="Lulu Hypermarket" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Lulu</h6>
+                                <p>AED 50 Voucher</p>
+                                <span class="cost-tag" data-cost="500">500 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/amazon.jfif" alt="Amazon" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Amazon</h6>
+                                <p>AED 100 Voucher</p>
+                                <span class="cost-tag" data-cost="1000">1000 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/care4.png" alt="Carrefour" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Carrefour</h6>
+                                <p>AED 100 Voucher</p>
+                                <span class="cost-tag" data-cost="1000">1000 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+
+                            <div class="coupon-card">
+                                <div class="brand-logo-circle"><img src="../user/user-images/ikea.png" alt="Ikea" class="vendor-logo" onerror="this.style.display='none'"></div>
+                                <h6>Ikea</h6>
+                                <p>AED 100 Voucher</p>
+                                <span class="cost-tag" data-cost="1000">1000 Pts</span>
+                                <button class="small-redeem-btn" onclick="redeemPoints(this)">Redeem Now</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-profile" class="view-section">
+                <div class="welcome-banner animate-up">
+                    <h1>Account <span class="highlight">Settings</span></h1>
+                </div>
+
+                <div class="profile-layout animate-up stagger-1">
+                    <div class="premium-card branded-border">
+                        <div class="card-header-row">
+                            <div class="icon-title">
+                                <div class="icon-hex"><i class="fa-solid fa-user"></i></div>
+                                <h3>Personal Information</h3>
+                            </div>
+                        </div>
+                        <form id="profileInfoForm">
+                            <div class="form-grid-3-col">
+                                <div class="input-group">
+                                    <label>First Name</label>
+                                    <input type="text" id="profile-first-name" placeholder="Enter first name" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Last Name</label>
+                                    <input type="text" id="profile-last-name" placeholder="Enter last name" required>
+                                </div>
+                                <div class="input-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" id="profile-phone" placeholder="+971">
+                                </div>
+                                <div class="input-group">
+                                    <label>Email Address</label>
+                                    <input type="email" id="profile-email" placeholder="yourmail@gmail.com" readonly>
+                                </div>
+                                <div class="input-group">
+                                    <label>City</label>
+                                    <select id="profile-city">
+                                        <option>Dubai</option>
+                                        <option>Sharjah</option>
+                                        <option>Ajman</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="main-cta-btn">Update Profile</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="premium-card password-border">
+                        <div class="card-header-row">
+                            <div class="icon-title">
+                                <div class="icon-hex blue"><i class="fa-solid fa-lock"></i></div>
+                                <h3>Security Settings</h3>
+                            </div>
+                        </div>
+                        <form id="passwordForm">
+                            <div class="form-grid-3-col">
+                                <div class="input-group"><label>Current Password</label><input type="password" placeholder="••••••••"></div>
+                                <div class="input-group"><label>New Password</label><input type="password" placeholder="New password"></div>
+                                <div class="input-group"><label>Retype Password</label><input type="password" placeholder="Confirm password"></div>
+                            </div>
+                            <div class="form-action">
+                                <button type="submit" class="main-cta-btn secondary">Change Password</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
         </main>
     </div>
 
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2026/05/29/10/20260529102747-APWSXMJM.js" defer></script>
+    <script src="../../javascript/session.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCkXPASd8M_NokhdioyLR9ZkOrvMjE34&callback=initMap" async defer></script>
+    <script src="user-script.js"></script>
 </body>
 </html>

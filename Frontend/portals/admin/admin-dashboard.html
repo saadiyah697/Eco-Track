@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Track | Admin Command Center</title>
+    <link rel="icon" type="image/x-icon" href="../drivers/Images/Eco-track-white-logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="admin-style.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+
+    <div id="global-loader" class="global-loader">
+        <div class="loader-spinner">
+            <div class="loader-ring"></div>
+            <div class="loader-core"></div>
+        </div>
+    </div>
+
+    <header class="mobile-top-bar">
+        <div class="hamburger" id="mobile-menu-btn">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="mobile-brand">Admin Center</div>
+        <div class="mobile-avatar"><i class="ph-fill ph-shield-check"></i></div>
+    </header>
+
+    <div class="dashboard-wrapper">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-top">
+                <div class="company-brand">
+                    <div class="logo-wrap">
+                        <img src="../../Images/Eco-track-white-logo.png" alt="Eco-Track Logo" style="width: 45px; height: auto; margin-right: 12px;">
+                    </div>
+                    <div class="brand-text">
+                        <span class="company-name">ECO-TRACK</span>
+                        <span class="company-tagline">System Admin</span>
+                    </div>
+                </div>
+
+                <ul class="nav-menu" id="nav-links">
+                    <li class="nav-label">COMMAND CORE</li>
+                    <li><a href="#view-overview" class="active" data-target="view-overview"><i class="ph ph-squares-four"></i> Platform Overview</a></li>
+                    <li><a href="#view-logistics" data-target="view-logistics"><i class="ph ph-truck"></i> Live Logistics <span class="nav-badge alert">3</span></a></li>
+                    
+                    <li class="nav-label">NETWORK MANAGEMENT</li>
+                    <li><a href="#view-users" data-target="view-users"><i class="ph ph-users"></i> Users Ecosystem</a></li>
+                    <li><a href="#view-fleet" data-target="view-fleet"><i class="ph ph-steering-wheel"></i> Fleet Operators</a></li>
+                    
+                    <li class="nav-label">SYSTEM & ECONOMY</li>
+                    <li><a href="#view-economy" data-target="view-economy"><i class="ph ph-coin"></i> Points Economy</a></li>
+                    <li><a href="#view-reports" data-target="view-reports"><i class="ph ph-warning-circle"></i> Incident Reports</a></li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-bottom">
+                <div class="admin-profile">
+                    <img src="https://ui-avatars.com/api/?name=Super+Admin&background=1abc9c&color=fff" alt="Admin">
+                    <div class="admin-info">
+                        <h4>Mrs Saadiyah Zainab</h4>
+                        <p>Admin Access</p>
+                    </div>
+                </div>
+                <a href="../../index.html" class="logout-btn"><i class="ph ph-sign-out"></i> System Exit</a>
+            </div>
+        </aside>
+
+        <main class="content-wrapper">
+            
+            <header class="top-header">
+                <div class="header-left">
+                    <h1 id="page-title">Platform Overview</h1>
+                    <p class="subtitle" id="page-subtitle">Real-time system diagnostics and network health.</p>
+                </div>
+                <div class="header-right">
+                    <button class="btn-outline"><i class="ph ph-download-simple"></i> Export System Data</button>
+                    <div class="notification-bell" onclick="toggleNotifications()">
+                        <i class="ph-fill ph-bell"></i>
+                        <span class="pulse-dot red"></span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="view-container">
+                
+                <section id="view-overview" class="view-section active">
+                    <div class="kpi-grid animate-up stagger-1">
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span>Total Waste Offset</span>
+                                <div class="icon-box green"><i class="ph ph-leaf"></i></div>
+                            </div>
+                            <h2>1,452.8 <span>Tons</span></h2>
+                            <p class="trend up"><i class="ph ph-trend-up"></i> +12.5% from last month</p>
+                        </div>
+
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span>Active Eco-Champions</span>
+                                <div class="icon-box blue"><i class="ph ph-users"></i></div>
+                            </div>
+                            <h2>15,482</h2>
+                            <p class="trend up"><i class="ph ph-trend-up"></i> +342 new this week</p>
+                        </div>
+
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span>Points Economy Circulation</span>
+                                <div class="icon-box gold"><i class="ph ph-coins"></i></div>
+                            </div>
+                            <h2>1.2M <span>PTS</span></h2>
+                            <p class="trend neutral"><i class="ph ph-minus"></i> 85% redemption rate</p>
+                        </div>
+
+                        <div class="kpi-card">
+                            <div class="kpi-header">
+                                <span>Pending Pickups</span>
+                                <div class="icon-box purple"><i class="ph ph-truck"></i></div>
+                            </div>
+                            <h2>48</h2>
+                            <p class="trend down"><i class="ph ph-trend-down"></i> Fleet is operating at 92% capacity</p>
+                        </div>
+                    </div>
+
+                    <div class="split-layout animate-up stagger-2">
+                        <div class="panel data-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph-fill ph-arrows-left-right"></i> Live Network Activity</h3>
+                                <button class="btn-text">View All</button>
+                            </div>
+                            <div class="activity-feed">
+                                <div class="feed-item">
+                                    <div class="f-icon bg-green"><i class="ph ph-check"></i></div>
+                                    <div class="f-content">
+                                        <p><strong>Pickup #8842 Completed</strong> by Driver <i>Ahmed</i>.</p>
+                                        <span>+25 PTS issued to User: Sarah J.</span>
+                                    </div>
+                                    <div class="f-time">2m ago</div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="f-icon bg-blue"><i class="ph ph-user-plus"></i></div>
+                                    <div class="f-content">
+                                        <p><strong>New User Registration</strong> in Sharjah Zone A.</p>
+                                    </div>
+                                    <div class="f-time">15m ago</div>
+                                </div>
+                                <div class="feed-item">
+                                    <div class="f-icon bg-red"><i class="ph ph-warning-circle"></i></div>
+                                    <div class="f-content">
+                                        <p><strong>Incident Reported</strong> by Driver <i>Kareem</i>.</p>
+                                        <span>Issue: Smart Bin Tampered (ID: SB-442)</span>
+                                    </div>
+                                    <div class="f-time">1h ago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel health-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph-fill ph-activity"></i> Infrastructure Health</h3>
+                            </div>
+                            <div class="health-metrics">
+                                <div class="h-metric">
+                                    <div class="hm-text"><span>Smart Bins Online</span> <strong>98%</strong></div>
+                                    <div class="progress-bg"><div class="progress-fill green" style="width: 98%"></div></div>
+                                </div>
+                                <div class="h-metric">
+                                    <div class="hm-text"><span>API Uptime (User/Driver)</span> <strong>99.9%</strong></div>
+                                    <div class="progress-bg"><div class="progress-fill blue" style="width: 99.9%"></div></div>
+                                </div>
+                                <div class="h-metric">
+                                    <div class="hm-text"><span>Fleet Server Latency</span> <strong>42ms</strong></div>
+                                    <div class="progress-bg"><div class="progress-fill gold" style="width: 15%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-logistics" class="view-section">
+                    <div class="logistics-grid animate-up">
+                        <div class="panel map-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph-fill ph-map-pin"></i> Fleet GPS Tracking</h3>
+                                <div class="pulse-status online">Live Connection</div>
+                            </div>
+                            <div class="map-wrapper" id="admin-map">
+                            </div>
+                        </div>
+
+                        <div class="panel fleet-status-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph-fill ph-broadcast"></i> Active Operations</h3>
+                            </div>
+                            <div class="fleet-list">
+                                <div class="fleet-item">
+                                    <div class="fi-header">
+                                        <span class="status-pill success">En Route</span>
+                                        <strong>Rayan Ahmed</strong>
+                                    </div>
+                                    <p><strong>Vehicle:</strong> DXB-A 84729 (EV)</p>
+                                    <p><strong>Destination:</strong> Al Majaz 3</p>
+                                    <p><strong>Est. Arrival:</strong> 12 Mins</p>
+                                    <button class="btn-outline small">Ping Driver</button>
+                                </div>
+                                <div class="fleet-item">
+                                    <div class="fi-header">
+                                        <span class="status-pill warning">Collecting</span>
+                                        <strong>Kareem Hassan</strong>
+                                    </div>
+                                    <p><strong>Vehicle:</strong> SHJ-3 112 (Heavy)</p>
+                                    <p><strong>Location:</strong> Dubai Marina</p>
+                                    <p><strong>Current Load:</strong> 85% Capacity</p>
+                                    <button class="btn-outline small">Ping Driver</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-users" class="view-section">
+                    <div class="panel table-panel animate-up">
+                        <div class="panel-header table-controls">
+                            <div class="search-box">
+                                <i class="ph ph-magnifying-glass"></i>
+                                <input type="text" id="userSearch" placeholder="Search users by name, email, or ID...">
+                            </div>
+                            <div class="filter-actions">
+                                <select id="statusFilter">
+                                    <option value="all">All Statuses</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Suspended">Suspended</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="admin-table" id="userTable">
+                                <thead>
+                                    <tr>
+                                        <th>User Info</th>
+                                        <th>Location</th>
+                                        <th>Eco-Points</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTableBody">
+                                    <tr>
+                                        <td colspan="5" style="text-align: center; padding: 20px;">Loading users...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-fleet" class="view-section">
+                    <div class="panel table-panel animate-up">
+                        <div class="panel-header">
+                            <h3><i class="ph ph-steering-wheel"></i> Fleet Database</h3>
+                            <button class="btn-primary" onclick="addDriver()"><i class="ph ph-plus"></i> Onboard Driver</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Driver (ID)</th>
+                                        <th>Vehicle Assigned</th>
+                                        <th>Shift Status</th>
+                                        <th>Efficiency Rating</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="driverTableBody">
+                                    <tr>
+                                        <td colspan="5" style="text-align: center; padding: 20px;">Loading fleet data...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-economy" class="view-section">
+                    <div class="economy-grid animate-up">
+                        <div class="panel eco-settings-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph-fill ph-sliders"></i> Reward Conversion Rates</h3>
+                            </div>
+                            <form id="ecoForm" class="eco-form">
+                                <p class="eco-desc">Adjust the system-wide Green Points distributed per kilogram. Changes apply instantly to all new pickups.</p>
+                                
+<div class="eco-input-row">
+                                    <div class="eco-label"><i class="ph-fill ph-recycle text-blue"></i>Plastics</div>
+                                    <div class="eco-control"><input type="number" id="rate-plastic" value="10"> <span>PTS / kg</span></div>
+                                </div>
+                                
+                                <div class="eco-input-row">
+                                    <div class="eco-label"><i class="ph-fill ph-plug text-purple"></i>E-Waste</div>
+                                    <div class="eco-control"><input type="number" id="rate-ewaste" value="20"> <span>PTS / kg</span></div>
+                                </div>
+                                
+                                <div class="eco-input-row">
+                                    <div class="eco-label"><i class="ph-fill ph-drop text-teal"></i>Glass & Mirror</div>
+                                    <div class="eco-control"><input type="number" id="rate-glass" value="15"> <span>PTS / kg</span></div>
+                                </div>
+                                
+                                <div class="eco-input-row">
+                                    <div class="eco-label"><i class="ph-fill ph-file-text text-gold"></i>Paper & Cardboard</div>
+                                    <div class="eco-control"><input type="number" id="rate-paper" value="10"> <span>PTS / kg</span></div>
+                                </div>
+                                
+                                <div class="eco-input-row">
+                                    <div class="eco-label"><i class="ph-fill ph-cylinder" style="color: #94a3b8;"></i>Cans & Tins</div>
+                                    <div class="eco-control"><input type="number" id="rate-cans" value="10"> <span>PTS / kg</span></div>
+                                </div>
+
+                                <div class="eco-form-footer">
+                                    <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">Update Global Rates</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="panel eco-stats-panel">
+                            <div class="panel-header">
+                                <h3><i class="ph-fill ph-chart-pie-slice"></i> Liability & Redemption</h3>
+                            </div>
+                            <div class="eco-stat-box">
+                                <h4>Total Unredeemed Liability</h4>
+                                <h2>124,500 <span class="pts">PTS</span></h2>
+                                <p>Points currently sitting in user wallets.</p>
+                            </div>
+                            <div class="eco-stat-box bg-light-green">
+                                <h4>Total Points Redeemed</h4>
+                                <h2>1,075,500 <span class="pts">PTS</span></h2>
+                                <p>Converted into vouchers successfully.</p>
+                            </div>
+                            
+                            <h4 style="margin-top: 25px; margin-bottom: 10px;">Top Partner Vouchers</h4>
+                            <div class="vendor-list">
+                                <div class="vendor-item"><span>1. Carrefour (100 AED)</span> <strong>450 Redeemed</strong></div>
+                                <div class="vendor-item"><span>2. Deliveroo (30 AED)</span> <strong>320 Redeemed</strong></div>
+                                <div class="vendor-item"><span>3. ADNOC (50 AED)</span> <strong>210 Redeemed</strong></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="view-reports" class="view-section">
+                    <div class="report-grid animate-up">
+                        
+                        <div class="report-card priority-high">
+                            <div class="rc-header">
+                                <span class="badge high">HIGH PRIORITY</span>
+                                <span class="date">Today, 09:15 AM</span>
+                            </div>
+                            <h3>Smart Bin Tampered</h3>
+                            <p><strong>Reporter:</strong> Driver FLT-842 (Rayan)<br>
+                               <strong>Location:</strong> Al Majaz Park, Bin ID: SB-442</p>
+                            <p class="desc">"The solar panel on the lid has been shattered. The bin is currently offline and unable to sync weights."</p>
+                            <div class="rc-actions">
+                                <button class="btn-primary" onclick="resolveIncident(this)">Dispatch Maintenance</button>
+                                <button class="btn-secondary" onclick="dismissIncident(this)">Dismiss</button>
+                            </div>
+                        </div>
+
+                        <div class="report-card priority-med">
+                            <div class="rc-header">
+                                <span class="badge med">MEDIUM</span>
+                                <span class="date">Yesterday, 14:30 PM</span>
+                            </div>
+                            <h3>Customer Absent (Pickup Failed)</h3>
+                            <p><strong>Reporter:</strong> Driver FLT-119 (Kareem)<br>
+                               <strong>Location:</strong> Dubai Marina, Tower B</p>
+                            <p class="desc">"Waited 15 minutes. Customer unresponsive. Marked pickup as failed in system."</p>
+                            <div class="rc-actions">
+                                <button class="btn-primary" onclick="resolveIncident(this)">Contact Customer</button>
+                                <button class="btn-secondary" onclick="resolveIncident(this)">Acknowledge & Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNCkXPASd8M_NokhdioyLR9ZkOrvMjE34&callback=initAdminMap" async defer></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>
