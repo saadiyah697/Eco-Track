@@ -16,10 +16,10 @@
 
 ## 📖 About The Project
 
-Eco-Track bridges the gap between hardware and software to create a modern solution for urban waste management. By utilizing an Arduino-powered smart dustbin, the system captures real-time data and syncs it with a cloud-based MERN stack platform. Users can log in, request pickups, and view live tracking, while administrators can monitor overall system metrics.
+Eco-Track bridges the gap between hardware and software to create a modern solution for urban waste management. By utilizing an backend powered smart dustbin, the system captures real-time data and syncs it with a cloud-based MERN stack platform. Users can log in, request pickups, and view live tracking, while administrators can monitor overall system metrics.
 
 ### 🌟 Key Features
-* **Smart Bin Integration:** Receives data from Arduino-based hardware for intelligent waste tracking.
+* **Smart Bin Integration:** Receives data from the backend cloud for intelligent waste tracking.
 * **Unified Authentication:** Secure login using custom JWTs or Google Client ID integration.
 * **Role-Based Dashboards:** Unique portal interfaces for standard users, drivers, and administrators.
 * **Live Analytics:** Track metrics, bin statuses, and request histories directly from the database.
@@ -33,7 +33,6 @@ Eco-Track bridges the gap between hardware and software to create a modern solut
 | **Frontend** | HTML5, CSS3, JavaScript (Vanilla API Integration) |
 | **Backend** | Node.js, Express.js |
 | **Database** | MongoDB (Mongoose ORM) |
-| **Hardware** | Arduino |
 | **Hosting** | Vercel (Frontend), Render (Backend) |
 
 ---
