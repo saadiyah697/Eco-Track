@@ -2,7 +2,7 @@
    ECO-TRACK: UNIFIED AUTHENTICATION API
 ========================================= */
 
-const API_URL = 'http://localhost:5000/api/auth';
+const API_URL = 'https://eco-track-backend-r51b.onrender.com/api/auth';
 
 document.addEventListener('DOMContentLoaded', () => {
     

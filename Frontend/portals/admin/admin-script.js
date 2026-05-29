@@ -325,7 +325,7 @@ async function fetchAllUsers() {
         const token = localStorage.getItem('ecoTrackToken');
         
         // Adjust this URL to match your actual backend API route
-        const response = await fetch('http://localhost:5000/api/users', { 
+        const response = await fetch('https://eco-track-backend-r51b.onrender.com/api/users', { 
             headers: { 'Authorization': `Bearer ${token}` }
         });
 
@@ -390,7 +390,7 @@ async function toggleUserStatus(userId, newStatus, userName) {
         const token = localStorage.getItem('ecoTrackToken');
         
         // Adjust this URL to match your backend route for updating a user
-        const response = await fetch(`http://localhost:5000/api/users/${userId}/status`, {
+        const response = await fetch(`https://eco-track-backend-r51b.onrender.com/api/users/${userId}/status`, {
             method: 'PATCH', // Or PUT, depending on your backend
             headers: { 
                 'Content-Type': 'application/json',
@@ -430,7 +430,7 @@ async function fetchAllDrivers() {
         const token = localStorage.getItem('ecoTrackToken');
         
         // We use the exact same backend route!
-        const response = await fetch('http://localhost:5000/api/users', { 
+        const response = await fetch('https://eco-track-backend-r51b.onrender.com/api/users', { 
             headers: { 'Authorization': `Bearer ${token}` }
         });
 
