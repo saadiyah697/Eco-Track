@@ -1436,17 +1436,29 @@ body {
 
     .sidebar {
         position: fixed;
-        left: -100%;
-        top: 75px;
-        height: calc(100vh - 75px);
-        width: 280px;
-        z-index: 1500;
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
-        overflow-y: auto;
+        left: -280px;
+        top: 60px; /* Accounts for your mobile top bar */
+        /* Use dvh (Dynamic Viewport Height) to fix mobile browser address bars */
+        height: calc(100dvh - 60px); 
+        padding-bottom: 30px; /* Gives breathing room at the bottom */
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.2);
+        
+        /* Force scrollability natively on mobile */
+        overflow-y: auto !important; 
+        overscroll-behavior-y: contain; /* Stops the background page from scrolling */
+        -webkit-overflow-scrolling: touch; /* Enables smooth momentum scrolling on iPhones */
     }
 
-    .sidebar.open {
+    .sidebar.active {
         left: 0;
+    }
+
+    /* Protect the logout button from getting squished by the flexbox */
+    .sidebar-bottom {
+        margin-top: auto;
+        padding: 20px;
+        min-height: 90px; /* Secures physical space for the button */
+        flex-shrink: 0; /* Forces the browser to never shrink this box */
     }
 
     .top-header {
