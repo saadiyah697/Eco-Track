@@ -1425,7 +1425,7 @@ body {
 
     .dashboard-wrapper {
         flex-direction: column;
-        height: calc(100dvh - 25px);
+        height: 120vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
