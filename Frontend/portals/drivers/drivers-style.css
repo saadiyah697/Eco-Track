@@ -1436,17 +1436,34 @@ body {
 
     .sidebar {
         position: fixed;
-        left: -100%;
-        top: 75px;
-        height: calc(100vh - 75px);
+        left: -100%; /* Keeps it hidden until opened */
+        top: 75px; /* Matches your mobile header exactly */
+        
+        /* THE MAGIC FIX: */
+        bottom: 0; /* Anchors the menu strictly to the visible bottom of the phone */
+        height: auto; /* Removes the broken 100vh math entirely */
+        
         width: 280px;
         z-index: 1500;
-        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
-        overflow-y: auto;
+        
+        /* Force Native Mobile Scrolling */
+        overflow-y: auto; 
+        -webkit-overflow-scrolling: touch; 
+        
+        /* Keep layout structured */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
     }
 
     .sidebar.open {
         left: 0;
+    }
+
+    .sidebar-bottom {
+        margin-top: auto; /* Pushes the button down */
+        /* ADDED 40px BOTTOM PADDING to protect the button from iPhone swipe bars! */
+        padding: 20px 20px 40px 20px; 
     }
 
     .top-header {
@@ -1483,11 +1500,6 @@ body {
     }
 }
 
-@media (max-width: 380px) {
-    .sidebar {
-        overflow-y: auto;
-    }
-}
 
 /* =========================================
    PREMIUM UI FIXES, ANIMATIONS & PROFILE REDESIGN
