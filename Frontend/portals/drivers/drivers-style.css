@@ -1423,6 +1423,12 @@ body {
         display: flex;
     }
 
+    .dashboard-wrapper {
+        flex-direction: column;
+        height: 100vh;
+        overflow-y: auto;
+    }
+
     .content-wrapper {
         padding-top: 75px;
         height: calc(100vh - 75px);
@@ -1497,6 +1503,7 @@ body {
         height: calc(100dvh - 75px); /* Subtracts your mobile top bar height */
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for iOS */
+        padding-bottom: 80px; /* Gives plenty of room at the bottom */
     }
 }
 
