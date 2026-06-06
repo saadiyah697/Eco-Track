@@ -1483,7 +1483,7 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 380px) {
     .sidebar {
         overflow-y: auto;
     }
