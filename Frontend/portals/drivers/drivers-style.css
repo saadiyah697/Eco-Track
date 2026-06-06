@@ -1497,7 +1497,6 @@ body {
         height: calc(100dvh - 75px); /* Subtracts your mobile top bar height */
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for iOS */
-        padding-bottom: 30px; /* Gives plenty of room at the bottom */
     }
 }
 
