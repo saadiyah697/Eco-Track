@@ -1423,12 +1423,6 @@ body {
         display: flex;
     }
 
-    .dashboard-wrapper {
-        flex-direction: column;
-        height: 100vh;
-        overflow: hidden;
-    }
-
     .content-wrapper {
         padding-top: 75px;
         height: calc(100vh - 75px);
@@ -1499,7 +1493,7 @@ body {
         overflow-y: auto;
     }
 
-    .main-content { /* Note: If you named this something else like .dashboard-content, use that class name! */
+    .dashboard-wrapper {
         height: calc(100dvh - 75px); /* Subtracts your mobile top bar height */
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for iOS */
