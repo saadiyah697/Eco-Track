@@ -2913,6 +2913,13 @@ select.form-input option {
     border-radius: 3px;
 }
 
+@media (max-width: 1360px){
+    .nav-links a{
+        font-size: 0.9rem;
+    }
+    
+}
+
 /* Tablet & Mobile Screens (Activates at 1250px) */
 @media (max-width: 1270px) {
     .menu-toggle {

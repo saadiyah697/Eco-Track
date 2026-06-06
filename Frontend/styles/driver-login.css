@@ -398,7 +398,7 @@ body {
 }
 
 /* =========================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (UPDATED FOR DRIVERS)
 ========================================= */
 
 /* Tablets & Small Laptops (Max-width: 1024px) */
@@ -406,12 +406,13 @@ body {
     .premium-auth-card {
         flex-direction: column;
         height: auto; 
-        min-height: 800px; 
+        min-height: auto; /* Fix: Removes rigid 800px limit */
     }
     
     .auth-showcase {
         padding: 50px 40px;
         text-align: center;
+        flex: none; /* Prevents stretching */
     }
 
     .showcase-stats {
@@ -420,36 +421,91 @@ body {
 
     .auth-form-area {
         padding: 50px 40px;
-        min-height: 600px;
+        min-height: auto; /* Fix: Removes rigid 600px limit */
+        align-content: start; 
     }
-    /* Removed the old #registerBox fixed positions! */
 }
 
 /* Mobile Phones (Max-width: 768px) */
 @media (max-width: 768px) {
     .auth-page-wrapper {
-        padding: 100px 5% 40px;
+        padding: 100px 15px 40px; 
     }
     
+    .premium-auth-card {
+        border-radius: 16px; 
+    }
+
     .auth-showcase {
-        padding: 40px 20px;
+        padding: 30px 20px;
+    }
+
+    .showcase-logo {
+        height: 35px;
+        margin-bottom: 10px;
     }
 
     .auth-showcase h2 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        margin-bottom: 5px;
     }
 
-    .auth-showcase p {
-        font-size: 1rem;
-        margin: 0 auto 20px;
+    /* Hide the bulky text and stats on mobile to immediately show the login form */
+    .auth-showcase p,
+    .showcase-stats {
+        display: none; 
     }
     
     .auth-form-area {
-        padding: 40px 20px;
+        padding: 30px 20px;
+    }
+
+    .form-header h2 {
+        font-size: 1.5rem;
     }
 
     .social-row {
         flex-direction: column;
+        align-items: center; /* Centers the Google button */
     }
-    /* Removed the old #registerBox fixed positions! */
+}
+
+/* Extra Small Screens (Max-width: 380px) */
+@media (max-width: 380px) {
+    .auth-form-area {
+        padding: 25px 15px;
+    }
+
+    .form-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .form-subtitle {
+        font-size: 0.8rem;
+    }
+
+    .input-group label {
+        font-size: 0.85rem;
+    }
+
+    .input-wrapper i {
+        font-size: 0.9rem;
+        left: 12px;
+    }
+
+    .input-group input {
+        font-size: 0.85rem;
+        padding: 12px 15px 12px 38px;
+    }
+
+    .btn-primary {
+        padding: 12px;
+        font-size: 1rem;
+    }
+    
+    /* Slightly scales down the Google button to prevent horizontal scrolling */
+    .g_id_signin {
+        transform: scale(0.95);
+        transform-origin: center center;
+    }
 }

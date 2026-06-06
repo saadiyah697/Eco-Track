@@ -1402,6 +1402,20 @@ body {
     .intel-grid {
         grid-template-columns: 1fr;
     }
+    .sidebar {
+        position: fixed;
+        left: -280px;
+        top: 60px; /* Accounts for the mobile top bar */
+        height: calc(100vh - 60px); /* Fill the rest of the screen */
+        bottom: 0;
+        /* Ensure it scrolls on mobile */
+        overflow-y: auto; 
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1428,6 +1442,7 @@ body {
         width: 280px;
         z-index: 1500;
         box-shadow: 10px 0 30px rgba(0, 0, 0, 0.3);
+        overflow-y: auto;
     }
 
     .sidebar.open {
