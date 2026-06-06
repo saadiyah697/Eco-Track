@@ -1498,13 +1498,6 @@ body {
         max-height: 90vh;
         overflow-y: auto;
     }
-
-    .dashboard-wrapper {
-        height: calc(100dvh - 75px); /* Subtracts your mobile top bar height */
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch; /* Smooth momentum scrolling for iOS */
-        padding-bottom: 80px; /* Gives plenty of room at the bottom */
-    }
 }
 
 
