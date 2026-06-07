@@ -1523,5 +1523,13 @@ body {
     .logo {
         display: none;
     }
+
+    .brand-text {
+        font-size: 23px;
+    }
+
+    .notification-wrapper {
+        display: none;
+    }
 }
 
