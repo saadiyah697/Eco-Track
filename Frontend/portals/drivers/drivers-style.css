@@ -1432,7 +1432,7 @@ body {
 
     .content-wrapper {
         padding-top: 75px;
-        height: calc(100vh - 75px);
+        height: 100vh;
     }
 
     .sidebar {
