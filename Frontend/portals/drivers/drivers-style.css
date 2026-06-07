@@ -1431,6 +1431,7 @@ body {
     }
 
     .content-wrapper {
+        padding-top: 100px;
         height: 150vh;
     }
 
