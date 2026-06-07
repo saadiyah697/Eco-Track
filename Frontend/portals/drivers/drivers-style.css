@@ -1431,7 +1431,7 @@ body {
     }
 
     .content-wrapper {
-        padding-top: 140px;
+        padding-top: 75px;
         height: 100vh;
     }
 
@@ -1499,8 +1499,7 @@ body {
     max-height: 80dvh; /* Forces the popup to never be taller than 85% of the screen */
     overflow-y: auto; /* Creates a scrollbar just for the inside of the popup */
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 5px;
-    width: 75%;
+    width: 85%;
     }
 }
 
