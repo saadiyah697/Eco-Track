@@ -1512,7 +1512,7 @@ body {
 }
 
 /* Fix for extremely small screens (like 341px) */
-@media (max-width: 380px) {
+@media (max-width: 430px) {
     .nav-left .logo {
         font-size: 1.2rem; /* Shrinks logo text slightly to fit hamburger menu */
     }
