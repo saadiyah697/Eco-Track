@@ -1431,9 +1431,7 @@ body {
     }
 
     .content-wrapper {
-        padding-top: 75px;
         height: 100vh;
-        padding-bottom: 20px;
     }
 
     .sidebar {
